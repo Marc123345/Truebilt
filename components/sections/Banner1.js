@@ -7,7 +7,8 @@ export default function Banner1() {
             <section className="banner-area">
                 <div className="banner-shape" />
                 <div className="banner-bg" data-background="/assets/img/banner/banner_bg.jpg">
-                    <div className="banner-content">
+                    <div className="container">
+                        <div className="banner-content">
                         <span className="tb-eyebrow wow fadeInDown" data-wow-delay=".1s">{site.serviceArea}</span>
                         <h2 className="title wow fadeInDown" data-wow-delay=".2s">Roofs Built to Outlast the Weather</h2>
                         <p className="wow fadeInUp" data-wow-delay=".2s">
@@ -18,6 +19,7 @@ export default function Banner1() {
                             <Link href={site.phoneHref} className="tb-call-link">
                                 <i className="fas fa-phone-alt" /> {site.phone}
                             </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
