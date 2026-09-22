@@ -19,6 +19,43 @@ export const coatingImages = {
     beforeAfter: `${IK}/34.png?tr=w-1000`,
 }
 
+// Before/after restorations. Each file is already a stacked before/after pair.
+//
+// ⚠ These are reference photographs of coating-system restorations from Marc's
+// library — they are NOT documented as True Bilt jobs. Do not caption them as
+// "our work" until David confirms which are his or supplies his own. See the
+// open items at the bottom of this file.
+export const restorations = [
+    { file: "13.png", alt: "A rusted standing-seam metal roof before, and the same roof after a white coating system" },
+    { file: "20.png", alt: "A weathered metal roof before, and after a reflective coating" },
+    { file: "22.png", alt: "A low-slope metal roof before, and after restoration" },
+    { file: "23.png", alt: "A heavily rusted metal roof before, and after a coating system" },
+    { file: "26.png", alt: "A patched and rust-streaked hipped metal roof before, and after coating" },
+    { file: "29.png", alt: "A stained flat commercial roof before, and after a white coating" },
+    { file: "30.png", alt: "A rust-striped metal roof before, and after a reflective coating" },
+    { file: "34.png", alt: "A weathered metal roof over a workshop before, and after coating" },
+    { file: "35.png", alt: "A red-rusted metal roof before, and after a coating system" },
+].map((r) => ({ ...r, src: `${IK}/${r.file}?tr=w-900` }))
+
+// Rooftop footage. Video.mp4 is a crew spray-applying a coating; Video 2 is an
+// interior inspection of a ceiling stain.
+export const videos = {
+    application: {
+        src: `${IK}/Video.mp4`,
+        poster: `${IK}/Video.mp4/ik-thumbnail.jpg`,
+        title: "A coating system going on",
+        text: "Sprayed in coats across the whole roof, seams and all — one continuous membrane when it cures.",
+    },
+    inspection: {
+        // ImageKit cannot generate a thumbnail for this filename, so the poster
+        // frame was pulled locally.
+        src: `${IK}/Video%202.mp4`,
+        poster: "/assets/img/tb/video-inspection-poster.jpg",
+        title: "Where the leak actually is",
+        text: "The stain on a ceiling is rarely under the hole. Finding the real source is most of the job.",
+    },
+}
+
 export const site = {
     name: "True Bilt LLC",
     shortName: "True Bilt",
@@ -199,10 +236,12 @@ export const nav = [
  *    drawn for him (two stacked roof chevrons — the coating over the deck) in
  *    /public/assets/img/logo/. Colours are green/white per Marc, set as
  *    --tb-primary / --tb-secondary at the top of /public/assets/css/tb.css.
- * 3. PHOTOGRAPHY. David answered "No — need help with this". The four roof
- *    COATING photos are real, from Marc's ImageKit. Everything else is still
- *    stock template imagery. Nothing is labelled as a True Bilt job, and there
- *    is no "our work" gallery, deliberately.
+ * 3. PHOTOGRAPHY. David answered "No — need help with this". The coating
+ *    photos, the nine before/after restorations and the two videos come from
+ *    Marc's ImageKit library. ⚠ NONE of them is documented as a True Bilt job.
+ *    They are captioned as what a coating system does, never as "our work".
+ *    Before launch David should either confirm which are his, supply his own,
+ *    or agree to the current framing. Everything else is template stock.
  * 4. TESTIMONIALS AND REVIEWS. None were supplied and there is no Google
  *    Business Profile yet, so there is no reviews section anywhere.
  * 5. ADDRESS. No street address was given, so only the service area appears.

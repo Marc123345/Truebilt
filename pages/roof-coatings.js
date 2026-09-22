@@ -3,6 +3,8 @@ import Layout from "@/components/layout/Layout"
 import CoatingExplainer from "@/components/sections/CoatingExplainer"
 import Faq1 from "@/components/sections/Faq1"
 import CtaBand from "@/components/sections/CtaBand"
+import Restorations from "@/components/sections/Restorations"
+import VideoBlocks from "@/components/sections/VideoBlocks"
 import { site, coatingImages } from "@/data/site"
 
 const steps = [
@@ -45,26 +47,9 @@ export default function RoofCoatings() {
 
                 <CoatingExplainer showCta={false} />
 
-                <section className="tb-ba pb-120">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-8">
-                                <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
-                                    <span className="sub-title tg-element-title">Same Roof</span>
-                                    <h2 className="title tg-element-title">Restored, Not Replaced</h2>
-                                    <p className="tb-lede">A rusted metal roof and the same roof after a coating system went over it. Nothing was torn off.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row justify-content-center">
-                            <div className="col-lg-8">
-                                <div className="tb-ba__shot wow fadeInUp" data-wow-delay=".2s">
-                                    <img src={coatingImages.beforeAfter} alt="Before and after: a weathered metal roof restored with a white coating system" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <Restorations />
+
+                <VideoBlocks />
 
                 <section className="tb-steps pb-120">
                     <div className="container">
