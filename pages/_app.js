@@ -1,5 +1,4 @@
-import Preloader from "@/components/elements/Preloader"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../public/assets/css/bootstrap.min.css"
@@ -16,24 +15,17 @@ import "../public/assets/css/tb.css"
 import "../public/assets/css/shot.css"
 
 function MyApp({ Component, pageProps }) {
-
-    const [loading, setLoading] = useState(true)
+    // The template gated the whole site behind a one-second JS preloader, so
+    // any delay or failure in hydration left visitors on a blank white page.
+    // The page is server-rendered; it is shown straight away instead.
     useEffect(() => {
-        // ?shot=1 skips the preloader and reveals scroll animations, for screenshots.
-        const shot = new URLSearchParams(window.location.search).has('shot')
-        if (shot) document.documentElement.classList.add('shot')
-        setTimeout(() => {
-            setLoading(false)
-        }, shot ? 0 : 1000)
-
+        // ?shot=1 reveals scroll animations immediately, for screenshots.
+        if (new URLSearchParams(window.location.search).has('shot')) {
+            document.documentElement.classList.add('shot')
+        }
     }, [])
-    return (<>
-        {!loading ? (
-            <Component {...pageProps} />
-        ) : (
-            <Preloader />
-        )}
-    </>)
+
+    return <Component {...pageProps} />
 }
 
 export default MyApp

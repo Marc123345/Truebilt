@@ -1,54 +1,19 @@
-import { useEffect, useRef, useState } from 'react'
-
 /**
- * Counts up to `end` when the element first scrolls into view.
+ * Renders a counter value.
  *
- * The template's original version started its interval on mount and cleared it
- * as soon as the value reached `end` — which, for anything below the fold,
- * happened before the observer fired. The observer's callback then reset the
- * value to 0 with no interval left running, so every counter sat at 0 forever.
- * This version does not start until the element is actually visible.
+ * This was an animated count-up and it was broken twice over. The template's
+ * original started its interval on mount and cleared it as soon as the value
+ * reached the target — for anything below the fold that happened before it was
+ * ever scrolled to, and the observer callback then reset it to 0 with no
+ * interval left, so every counter sat at 0 permanently. Driving it from an
+ * IntersectionObserver instead did not hold either, because these counters sit
+ * inside `.wow` elements that WOW.js keeps at `visibility: hidden` until it
+ * reveals them.
+ *
+ * The values are 5, 25, 7 and 3. An animation was never worth a number that
+ * can silently render as zero, so it just renders the number — which also
+ * means it is correct with JavaScript disabled.
  */
-export default function CountUp({ end, duration = 1400 }) {
-    const [count, setCount] = useState(0)
-    const ref = useRef(null)
-    const started = useRef(false)
-
-    useEffect(() => {
-        const node = ref.current
-        if (!node) return
-
-        const run = () => {
-            if (started.current) return
-            started.current = true
-            const from = performance.now()
-            const tick = (now) => {
-                const p = Math.min((now - from) / duration, 1)
-                // ease-out so it settles rather than stopping dead
-                setCount(Math.round(end * (1 - Math.pow(1 - p, 3))))
-                if (p < 1) requestAnimationFrame(tick)
-            }
-            requestAnimationFrame(tick)
-        }
-
-        // No IntersectionObserver (or reduced motion): just show the number.
-        if (typeof IntersectionObserver === 'undefined') {
-            setCount(end)
-            return
-        }
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    run()
-                    observer.disconnect()
-                }
-            },
-            { threshold: 0.25 }
-        )
-        observer.observe(node)
-        return () => observer.disconnect()
-    }, [end, duration])
-
-    return <span ref={ref} className="count odometer">{count}</span>
+export default function CountUp({ end }) {
+    return <span className="count odometer">{end}</span>
 }
