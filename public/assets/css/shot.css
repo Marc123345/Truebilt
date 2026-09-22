@@ -1,0 +1,2 @@
+/* Screenshot helper: ?shot=1 forces scroll animations visible. Dev aid only. */
+html.shot .wow, html.shot .animated { visibility: visible !important; animation: none !important; opacity: 1 !important; }
