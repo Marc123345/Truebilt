@@ -15,7 +15,7 @@ export default function Counter1() {
                                             <img src={c.icon} alt="" />
                                         </div>
                                         <div className="content">
-                                            <h2 className="count"><CountUp end={c.count} duration={40} />{c.suffix}</h2>
+                                            <h2 className="count"><CountUp end={c.count} />{c.suffix}</h2>
                                             <p>{c.label}</p>
                                         </div>
                                     </div>
