@@ -7,12 +7,18 @@
    here and the whole site follows.
    ========================================================================== */
 :root {
-    --tb-primary: #fe5d14;   /* accent — buttons, numbers, icons */
-    --tb-secondary: #131944; /* deep navy — headings, dark panels */
-    --tb-ink: #1c1c1c;
-    --tb-muted: #61657e;
-    --tb-line: #e6e9f5;
-    --tb-soft: #f7f8fc;
+    --tb-primary: #1B8A4B;        /* True Bilt green */
+    --tb-primary-dark: #14683A;   /* hover / pressed */
+    --tb-primary-soft: rgba(27, 138, 75, 0.12);
+    --tb-secondary: #0C2A1C;      /* deep evergreen — dark panels, headings */
+    --tb-ink: #14261D;
+    --tb-muted: #5b6b62;
+    --tb-line: #dfe9e3;
+    --tb-soft: #f2f7f4;           /* the off-white the whole site breathes on */
+
+    /* Vertical rhythm — every section uses these, nothing sets its own. */
+    --tb-section: 110px;
+    --tb-section-sm: 70px;
 }
 
 /* Feed the brand colours back into the template's own variables so every
@@ -20,7 +26,22 @@
 :root {
     --tg-primary-color: var(--tb-primary);
     --tg-secondary-color: var(--tb-secondary);
+    --tg-gray: var(--tb-soft);
+    --tg-border-color: var(--tb-line);
 }
+
+/* The five places the template hardcodes its orange instead of using the var. */
+.btn::before,
+.btn::after { background: var(--tb-primary-dark) !important; }
+.services-item::after {
+    background: linear-gradient(100.16deg, var(--tb-primary) 1.96%, rgba(12, 42, 28, 0) 198.08%) !important;
+}
+.services-icon { box-shadow: 0 0 30px rgba(27, 138, 75, 0.35) !important; }
+.features-item-inner::after,
+.features-icon::after {
+    background: linear-gradient(180deg, rgba(27, 138, 75, 0.14) 0%, rgba(27, 138, 75, 0) 100%) !important;
+}
+[class*="shadow"] { box-shadow: none; }
 
 /* ---------- wordmark (stand-in until the real logo lands) ---------- */
 .tb-logo {
@@ -262,7 +283,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(19, 25, 68, 0.95) 35%, rgba(19, 25, 68, 0.72) 100%);
+    background: linear-gradient(90deg, rgba(12, 42, 28, 0.96) 35%, rgba(12, 42, 28, 0.74) 100%);
 }
 .tb-cta .container { position: relative; z-index: 2; }
 .tb-cta__content .title {
@@ -406,3 +427,172 @@
     color: rgba(255, 255, 255, 0.72);
 }
 .footer-link-list .list-wrap li a:hover { color: var(--tb-primary); }
+
+/* ==========================================================================
+   SPACING — the template's sections each set their own padding, which is why
+   the rhythm was uneven. These normalise it onto --tb-section.
+   ========================================================================== */
+
+/* The hero's 100px top padding existed to sit under a transparent header.
+   Our header is solid, so it was showing as a white gap above the photo. */
+.banner-area { padding: 0 0 0 240px; }
+.banner-bg { min-height: 640px; padding: 90px 100px; }
+
+/* One rhythm for every section. */
+.features-area { padding: var(--tb-section) 0 calc(var(--tb-section) - 30px); }
+.about-area { padding: 0 0 var(--tb-section); }
+.services-area { padding: var(--tb-section) 0 calc(var(--tb-section) - 30px); }
+.tb-coating-area { padding: var(--tb-section) 0 calc(var(--tb-section) - 30px); }
+.faq-area { padding: var(--tb-section) 0; }
+.counter-area { padding: var(--tb-section) 0; }
+.tb-servicelist { padding: var(--tb-section) 0 calc(var(--tb-section) - 20px); }
+.tb-intro { padding: var(--tb-section) 0 50px; }
+.tb-steps { padding: 0 0 calc(var(--tb-section) - 30px); }
+.tb-ba { padding: 0 0 var(--tb-section); }
+.tb-white-roof { padding: 0 0 var(--tb-section); }
+.tb-values { padding: 0 0 calc(var(--tb-section) - 30px); }
+.tb-areas { padding: var(--tb-section) 0; }
+.tb-contact { padding: var(--tb-section) 0; }
+.footer-top { padding: var(--tb-section) 0 calc(var(--tb-section) - 40px); }
+.breadcrumb-area { padding: 150px 0 120px; }
+
+/* Equal-height service cards — they were ragged because each card sized to
+   its own text. */
+.services-area .row { align-items: stretch; }
+.services-area .row > [class*="col-"] { display: flex; }
+.services-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 300px;
+    padding: 40px 38px;
+}
+.services-icon { margin-bottom: auto; }
+.services-content { margin-top: 28px; }
+
+/* Counter — the template has no base styles for this markup, so it was
+   rendering unstyled. */
+.counter-area { background: var(--tb-soft); }
+.counter-inner-wrap { }
+.counter-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #fff;
+    border: 1px solid var(--tb-line);
+    border-radius: 10px;
+    padding: 28px 26px;
+    margin-bottom: 30px;
+    height: calc(100% - 30px);
+}
+.counter-item .icon {
+    width: 56px; height: 56px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--tb-primary);
+    border-radius: 10px;
+}
+.counter-item .icon img { width: 28px; height: 28px; }
+.counter-item .count {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--tb-secondary);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+.counter-item .content p { margin-bottom: 0; color: var(--tb-muted); font-size: 15px; }
+.counter-area .row { align-items: stretch; }
+.counter-area .row > [class*="col-"] { display: flex; }
+
+/* Photography blocks */
+.tb-hero-shot {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 55px;
+}
+.tb-hero-shot img { width: 100%; display: block; }
+.tb-ba__shot {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--tb-line);
+}
+.tb-ba__shot img { width: 100%; display: block; }
+
+/* Section-title spacing was set per-section with mb-* utilities; make it one. */
+.section-title { margin-bottom: 50px; }
+.about-content .section-title { margin-bottom: 22px; }
+
+/* Logo lockup */
+.tb-logo { display: inline-flex; align-items: center; gap: 12px; }
+.tb-logo img { width: 42px; height: 42px; display: block; }
+.tb-logo__word { line-height: 1; }
+.tb-logo__word b { color: var(--tb-primary); font-weight: 700; }
+.tb-logo--light .tb-logo__word,
+.tb-logo--light .tb-logo__word b { color: #fff; }
+
+@media (max-width: 1400px) {
+    .banner-area { padding-left: 120px; }
+}
+@media (max-width: 991px) {
+    :root { --tb-section: var(--tb-section-sm); }
+    .banner-area { padding-left: 0; }
+    .banner-bg { border-radius: 0; min-height: 520px; padding: 70px 30px; }
+    .banner-content { width: 100%; }
+    .banner-shape { display: none; }
+    .breadcrumb-area { padding: 100px 0 80px; }
+    .tb-hero-shot { margin-top: 40px; }
+}
+@media (max-width: 575px) {
+    .banner-content .title { font-size: 34px; }
+    .banner-content p { font-size: 17px; }
+    .counter-item { padding: 22px 20px; }
+    .services-item { padding: 32px 26px; min-height: 260px; }
+}
+
+/* The template's decorative side panel is a baked-in orange JPG. Override the
+   image entirely rather than trying to recolour a bitmap. */
+.banner-shape {
+    background-image: linear-gradient(160deg, var(--tb-primary) 0%, var(--tb-primary-dark) 55%, var(--tb-secondary) 100%) !important;
+}
+.banner-shape::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.16;
+    background-image:
+        repeating-linear-gradient(135deg, transparent 0 14px, rgba(255, 255, 255, 0.5) 14px 16px);
+}
+
+/* Footer and breadcrumb backgrounds are navy template JPGs — tint them green. */
+.footer-area { background-color: var(--tb-secondary); position: relative; }
+.footer-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--tb-secondary);
+    opacity: 0.82;
+    pointer-events: none;
+}
+.footer-area > * { position: relative; z-index: 1; }
+.breadcrumb-area { background-color: var(--tb-secondary); position: relative; z-index: 1; }
+.breadcrumb-area::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(12, 42, 28, 0.92) 0%, rgba(12, 42, 28, 0.55) 100%);
+    z-index: -1;
+}
+.breadcrumb-content .breadcrumb-item a { color: rgba(255, 255, 255, 0.75); }
+.breadcrumb-content .breadcrumb-item.active { color: var(--tb-primary); }
+
+/* The big card numbers and a few tinted panels are orange-derived. */
+.services-content .number {
+    background: linear-gradient(180deg, rgba(27, 138, 75, 0.20) 0%, rgba(27, 138, 75, 0) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+:root {
+    --tg-seashell: #eef5f1;
+    --tg-unbleached-silk: #cfe5d9;
+}

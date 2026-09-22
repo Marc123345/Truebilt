@@ -5,7 +5,7 @@ export default function Banner1() {
     return (
         <>
             <section className="banner-area">
-                <div className="banner-shape" data-background="/assets/img/banner/banner_shape.jpg" />
+                <div className="banner-shape" />
                 <div className="banner-bg" data-background="/assets/img/banner/banner_bg.jpg">
                     <div className="banner-content">
                         <span className="tb-eyebrow wow fadeInDown" data-wow-delay=".1s">{site.serviceArea}</span>

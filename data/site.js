@@ -5,6 +5,20 @@
 //
 // ⚠ OPEN ITEMS — see notes at the bottom of this file.
 
+// Marc's ImageKit account. Real roof-coating photography — these are the only
+// genuine roofing images on the site; everything else is still template stock.
+const IK = "https://ik.imagekit.io/qcvroy8xpd"
+export const coatingImages = {
+    // Crew spray-applying a white coating at sunset.
+    spray: `${IK}/580c524e-ceaa-4322-801d-0e8c216bebdd.png?tr=w-1200`,
+    // Two applicators spraying white silicone over a flat commercial roof.
+    silicone: `${IK}/Sylicone.jpeg?tr=w-1200`,
+    // Crew rolling white acrylic across a large flat roof — the "white vs black" shot.
+    acrylic: `${IK}/Asyrc.png?tr=w-1200`,
+    // Before/after of a rusted metal roof restored with a coating system.
+    beforeAfter: `${IK}/34.png?tr=w-1000`,
+}
+
 export const site = {
     name: "True Bilt LLC",
     shortName: "True Bilt",
@@ -58,7 +72,7 @@ export const services = [
         number: "02",
         title: "Roof Coatings & Restoration",
         icon: "/assets/img/icon/services_icon02.svg",
-        image: "/assets/img/services/services_item02.jpg",
+        image: `${IK}/Sylicone.jpeg?tr=w-800,h-600,fo-auto`,
         short: "Conklin systems that restore a sound roof instead of replacing it.",
         text: "A fluid-applied, industrial-grade membrane — often with fabric reinforcement at the seams — installed over a roof that is still structurally sound. It costs less than a tear-off, it goes on without shutting your building down, and it renews.",
     },
@@ -85,7 +99,7 @@ export const services = [
         number: "05",
         title: "Flat & Commercial Roofing",
         icon: "/assets/img/icon/services_icon05.svg",
-        image: "/assets/img/services/services_item05.jpg",
+        image: `${IK}/Asyrc.png?tr=w-800,h-600,fo-auto`,
         short: "Low-slope roofs for manufacturing, food production and hospitality.",
         text: "Flat and low-slope roofs fail differently to pitched ones — ponding, seam splits, failed flashing. We work on plants, warehouses, food facilities and hotels, and we work around your operation rather than through it.",
     },
@@ -94,7 +108,7 @@ export const services = [
         number: "06",
         title: "Metal Roofing",
         icon: "/assets/img/icon/services_icon06.svg",
-        image: "/assets/img/services/services_item06.jpg",
+        image: `${IK}/34.png?tr=w-800,h-600,fo-auto`,
         short: "New metal roofs, and coating systems for the metal you already have.",
         text: "Metal lasts, but fasteners back out and seams open up. We install new metal roofing, and we restore existing metal with a coating system that seals the seams and stops the rust cycle.",
     },
@@ -181,12 +195,14 @@ export const nav = [
  *    The site currently says "Licensed & Insured" with no state. Confirm
  *    which state the licence is in, and the licence number if he wants it
  *    shown.
- * 2. LOGO AND BRAND COLOURS. The form says he has both; neither was sent.
- *    The site is running the template's orange (#fe5d14) and navy (#131944).
- *    Swap them in /public/assets/css/tb.css — it is two values.
- * 3. PHOTOGRAPHY. David answered "No — need help with this". Every image on
- *    the site is a stock template photo. None of them is labelled as a True
- *    Bilt job, and there is no gallery of "our work", deliberately.
+ * 2. LOGO. David says he has one; it has not been sent. The site uses a mark
+ *    drawn for him (two stacked roof chevrons — the coating over the deck) in
+ *    /public/assets/img/logo/. Colours are green/white per Marc, set as
+ *    --tb-primary / --tb-secondary at the top of /public/assets/css/tb.css.
+ * 3. PHOTOGRAPHY. David answered "No — need help with this". The four roof
+ *    COATING photos are real, from Marc's ImageKit. Everything else is still
+ *    stock template imagery. Nothing is labelled as a True Bilt job, and there
+ *    is no "our work" gallery, deliberately.
  * 4. TESTIMONIALS AND REVIEWS. None were supplied and there is no Google
  *    Business Profile yet, so there is no reviews section anywhere.
  * 5. ADDRESS. No street address was given, so only the service area appears.

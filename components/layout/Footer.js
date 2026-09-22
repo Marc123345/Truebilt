@@ -12,7 +12,7 @@ export default function Footer() {
                                 <div className="col-xl-4 col-lg-4 col-md-6">
                                     <div className="footer-widget">
                                         <div className="fw-logo mb-20">
-                                            <Link href="/" className="tb-logo tb-logo--light">True <span>Bilt</span></Link>
+                                            <Link href="/" className="tb-logo tb-logo--light"><img src="/assets/img/logo/truebilt-mark-light.svg" alt="" width="44" height="44" /><span className="tb-logo__word">True <b>Bilt</b></span></Link>
                                         </div>
                                         <div className="footer-content">
                                             <p>Roof replacement, repair and Conklin coating systems for homes and commercial buildings across south-central Pennsylvania. {site.licenceLine}.</p>

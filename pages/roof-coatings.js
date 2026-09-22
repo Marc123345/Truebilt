@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout"
 import CoatingExplainer from "@/components/sections/CoatingExplainer"
 import Faq1 from "@/components/sections/Faq1"
 import CtaBand from "@/components/sections/CtaBand"
-import { site } from "@/data/site"
+import { site, coatingImages } from "@/data/site"
 
 const steps = [
     { n: "01", title: "Free inspection", text: "We get on the roof and find out whether the deck and structure underneath are sound. This is the question that decides everything else." },
@@ -36,9 +36,35 @@ export default function RoofCoatings() {
                             </div>
                         </div>
                     </div>
+                    <div className="container">
+                        <div className="tb-hero-shot wow fadeInUp" data-wow-delay=".3s">
+                            <img src={coatingImages.spray} alt="A roofer spray-applying a white coating system across a commercial roof" />
+                        </div>
+                    </div>
                 </section>
 
                 <CoatingExplainer showCta={false} />
+
+                <section className="tb-ba pb-120">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-8">
+                                <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
+                                    <span className="sub-title tg-element-title">Same Roof</span>
+                                    <h2 className="title tg-element-title">Restored, Not Replaced</h2>
+                                    <p className="tb-lede">A rusted metal roof and the same roof after a coating system went over it. Nothing was torn off.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row justify-content-center">
+                            <div className="col-lg-8">
+                                <div className="tb-ba__shot wow fadeInUp" data-wow-delay=".2s">
+                                    <img src={coatingImages.beforeAfter} alt="Before and after: a weathered metal roof restored with a white coating system" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <section className="tb-steps pb-120">
                     <div className="container">
@@ -76,7 +102,7 @@ export default function RoofCoatings() {
                         <div className="row align-items-center">
                             <div className="col-lg-6">
                                 <div className="tb-white-roof__img">
-                                    <img src="/assets/img/images/faq_img01.jpg" alt="" />
+                                    <img src={coatingImages.acrylic} alt="A crew rolling a reflective white acrylic coating across a large flat roof" />
                                 </div>
                             </div>
                             <div className="col-lg-6">
