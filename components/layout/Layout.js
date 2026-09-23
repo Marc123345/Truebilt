@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import BackToTop from '../elements/BackToTop'
 import DataBg from '../elements/DataBg'
 import Breadcrumb from './Breadcrumb'
 import Footer from './Footer'
@@ -25,8 +24,6 @@ export default function Layout({ headerCls, headerTop, headTitle, breadcrumbTitl
                 {children}
             </main>
             < Footer />
-
-            <BackToTop />
         </>
     )
 }

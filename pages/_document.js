@@ -11,6 +11,14 @@ export default function Document() {
             <body>
                 <Main />
                 <NextScript />
+                {/* Jotform AI agent chat widget. Deliberately a plain script
+                    in the document rather than next/script: it then ships in
+                    the HTML and does not wait on React hydration. `defer`
+                    keeps it from blocking the page. */}
+                <script
+                    src="https://cdn.jotfor.ms/agent/embedjs/01a0cd36ece07000820699ee4c55f53e9633/embed.js"
+                    defer
+                />
             </body>
         </Html>
     )
