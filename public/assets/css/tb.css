@@ -11,6 +11,11 @@
     --tb-primary: #F28C28;        /* True Bilt orange */
     --tb-primary-dark: #D2741A;   /* hover / pressed */
     --tb-primary-soft: rgba(242, 140, 40, 0.12);
+    /* The brand orange is only 2.45:1 on white — it fails WCAG AA as text.
+       This darker shade keeps the hue and clears 4.5:1 (5.03:1 on white,
+       4.68:1 on the off-white). Orange-as-text uses it; orange-as-fill
+       still uses the real brand colour. */
+    --tb-primary-text: #AD5803;
     --tb-secondary: #17212B;      /* logo navy — dark panels, headings */
     --tb-ink: #17212B;
     --tb-muted: #59636E;          /* the logo's grey, used for body copy */
@@ -753,3 +758,226 @@
 .tb-cta .tb-hero-img { z-index: 0; }
 .tb-cta::before { z-index: 1; }
 .tb-cta .container { position: relative; z-index: 2; }
+
+/* ==========================================================================
+   ACCESSIBILITY — WCAG 2.1 AA
+   ========================================================================== */
+
+/* 1.4.3 Contrast. White on the brand orange is 2.45:1 and fails badly. The
+   logo itself pairs orange with navy, which is 6.64:1, so buttons follow the
+   logo. Orange used as *text* drops to the darker --tb-primary-text. */
+.btn,
+.header-action .btn,
+.tb-cta__actions .btn {
+    color: var(--tb-secondary) !important;
+    font-weight: 700;
+}
+.btn i, .btn .btn-arrow-right, .btn .btn-arrow-left { color: var(--tb-secondary); }
+
+.sub-title,
+.tg-element-title.sub-title,
+.link-btn,
+.tb-fact__num,
+.read-more,
+.tb-form__alt a,
+.tb-contact__sent a,
+.breadcrumb-content .breadcrumb-item.active {
+    color: var(--tb-primary-text);
+}
+.link-btn i, .read-more i { color: var(--tb-primary-text); }
+/* On dark panels the brand orange is fine (8.4:1 on navy), so keep it there. */
+.tb-cta .sub-title,
+footer .sub-title,
+.breadcrumb-area .sub-title { color: var(--tb-primary); }
+
+/* 2.4.7 Visible focus. The template removed outlines entirely. */
+*:focus-visible {
+    outline: 3px solid var(--tb-primary-text);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+.tb-cta *:focus-visible,
+footer *:focus-visible,
+.breadcrumb-area *:focus-visible,
+.banner-bg *:focus-visible,
+.header-top-wrap *:focus-visible {
+    outline-color: #fff;
+}
+
+/* 2.4.1 Skip link. */
+.tb-skip {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 9999;
+    background: var(--tb-secondary);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 0 0 8px 8px;
+    font-weight: 600;
+    transition: top 0.15s ease;
+}
+.tb-skip:focus { top: 0; color: #fff; }
+
+/* Target size. WCAG 2.2 AA (2.5.8) asks for 24x24 minimum; the header,
+   footer and contact links were as small as 19px tall. Pointer devices get
+   24px, touch devices get the 44px comfortable size. */
+.header-top-left a,
+.tb-footer-contact a,
+.footer-link-list .list-wrap li a,
+.tb-contact__list a,
+.tb-cta__alt,
+.link-btn,
+.read-more,
+.breadcrumb-item a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+}
+
+@media (hover: none), (max-width: 991px) {
+    .header-top-left a,
+    .tb-mobile-contact a,
+    .tb-footer-contact a,
+    .footer-link-list .list-wrap li a,
+    .tb-contact__list a,
+    .tb-cta__alt,
+    .link-btn,
+    .navigation li a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+    .tb-restore__item, .services-item { min-height: 44px; }
+}
+
+/* 1.4.11 Non-text contrast: form borders were #e3e7ec (1.2:1). */
+.tb-form input,
+.tb-form select,
+.tb-form textarea { border-color: #96a0ab; }
+
+/* Visually hidden, still announced. */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+/* The hero headline is an <h1> now; keep the template's h2 sizing. */
+.banner-content h1.title { font-size: 56px; margin-bottom: 30px; color: #fff; }
+.breadcrumb-content h1.title { font-size: 48px; color: #fff; margin: 0 0 10px; }
+@media (max-width: 767px) {
+    .banner-content h1.title { font-size: 34px; }
+    .breadcrumb-content h1.title { font-size: 30px; }
+}
+/* Card number is decorative now, not a heading. */
+.services-content .number { display: block; }
+.services-overlay-content__name { font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 20px; }
+
+/* ==========================================================================
+   SLIDER (Conklin points)
+   CSS scroll-snap, so the slides are real scrollable content: no JS needed to
+   read them, native keyboard and touch behaviour, nothing added to the bundle.
+   ========================================================================== */
+.tb-slider { position: relative; display: flex; align-items: center; gap: 14px; }
+.tb-slider__track {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    margin: 0;
+    padding: 6px 2px 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    flex: 1 1 auto;
+}
+.tb-slider__track::-webkit-scrollbar { display: none; }
+.tb-slider__slide {
+    flex: 0 0 calc((100% - 26px) / 2);
+    scroll-snap-align: start;
+    display: flex;
+}
+.tb-slider__slide .tb-fact { margin-bottom: 0; height: auto; width: 100%; }
+
+.tb-slider__arrow {
+    flex: 0 0 auto;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--tb-line);
+    background: #fff;
+    color: var(--tb-secondary);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.tb-slider__arrow:hover:not(:disabled) { background: var(--tb-primary); color: var(--tb-secondary); }
+.tb-slider__arrow:disabled { opacity: 0.35; cursor: default; }
+
+.tb-slider__dots { display: flex; justify-content: center; gap: 10px; margin-top: 22px; }
+.tb-slider__dot {
+    width: 44px; height: 44px;           /* 2.5.5 touch target */
+    padding: 0; border: 0; background: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+}
+.tb-slider__dot::before {
+    content: "";
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: #b9c2cc;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.tb-slider__dot.is-active::before { background: var(--tb-primary-text); transform: scale(1.5); }
+
+@media (max-width: 991px) {
+    .tb-slider__slide { flex-basis: 100%; }
+    .tb-slider__arrow { display: none; }
+    .tb-slider__track { gap: 16px; scroll-padding-left: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .tb-slider__track { scroll-behavior: auto; }
+}
+
+/* Inline icons replace the Font Awesome webfont. They inherit colour and
+   size from their parent exactly as the <i> glyphs did. */
+.tb-icon {
+    display: inline-block;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
+}
+.btn .tb-icon { margin-left: 8px; }
+.btn .tb-icon:first-child { margin-left: 0; margin-right: 8px; }
+.link-btn .tb-icon, .read-more .tb-icon { margin-right: 6px; }
+.tb-contact__list .icon .tb-icon { font-size: 18px; }
+.about-list .tb-icon,
+.tb-footer-contact .tb-icon,
+.header-top-left .tb-icon { margin-right: 8px; }
+
+/* The template drew the button arrow, nav chevrons and accordion signs as Font
+   Awesome glyphs in ::after. With the webfont gone those rendered as empty
+   boxes. The button arrow is redrawn as a masked SVG (inherits currentColor,
+   stays crisp); the rest belonged to components this site does not use. */
+.btn::after {
+    content: "";
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+    font-family: inherit;
+    vertical-align: -1px;
+}
+.navbar-wrap > ul > li.menu-item-has-children > a::after,
+.header-lang .dropdown-toggle::after,
+.faq-wrap .accordion-button::after { content: none; }
+
+/* The chat launcher sits bottom-right over the contact form's submit button on
+   small screens. Give the page room so nothing is permanently covered. */
+@media (max-width: 767px) {
+    .tb-contact { padding-bottom: calc(var(--tb-section) + 90px); }
+    .footer-bottom { padding-bottom: 80px; }
+}

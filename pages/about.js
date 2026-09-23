@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout"
 import Counter1 from "@/components/sections/Counter1"
 import CtaBand from "@/components/sections/CtaBand"
 import { site, trustPoints } from "@/data/site"
+import Icon from "@/components/elements/Icon"
 
 export default function About() {
     return (
@@ -36,9 +37,9 @@ export default function About() {
                                     </p>
                                     <div className="about-list">
                                         <ul className="list-wrap">
-                                            <li><i className="fas fa-check" />{site.licenceLine}</li>
-                                            <li><i className="fas fa-check" />Residential and commercial</li>
-                                            <li><i className="fas fa-check" />Warranties up to 25 years</li>
+                                            <li><Icon name="check" />{site.licenceLine}</li>
+                                            <li><Icon name="check" />Residential and commercial</li>
+                                            <li><Icon name="check" />Warranties up to 25 years</li>
                                         </ul>
                                     </div>
                                     <Link href="/contact" className="btn">Talk to {site.owner.split(" ")[1] ? "David" : site.owner}</Link>

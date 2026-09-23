@@ -1,11 +1,12 @@
 import Link from "next/link"
-import { site, heroImage } from "@/data/site"
+import { site, heroImage, heroSrcSet, heroSizes } from "@/data/site"
+import Icon from "../elements/Icon"
 
 export default function CtaBand() {
     return (
         <>
             <section className="tb-cta">
-                <img className="tb-hero-img" src={heroImage} alt="" decoding="async" loading="lazy" />
+                <img className="tb-hero-img" src={heroImage} srcSet={heroSrcSet} sizes={heroSizes} alt="" decoding="async" loading="lazy" fetchPriority="low" />
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-7">
@@ -17,7 +18,7 @@ export default function CtaBand() {
                         <div className="col-lg-5">
                             <div className="tb-cta__actions">
                                 <Link href={site.phoneHref} className="btn">
-                                    <i className="fas fa-phone-alt" /> {site.phone}
+                                    <Icon name="phone-alt" /> {site.phone}
                                 </Link>
                                 <Link href="/contact" className="tb-cta__alt">Or send us a message</Link>
                             </div>

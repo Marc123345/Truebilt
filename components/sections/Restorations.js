@@ -19,7 +19,14 @@ export default function Restorations() {
                     <div className="tb-restore__grid">
                         {restorations.map((r, i) => (
                             <figure className="tb-restore__item wow fadeInUp" data-wow-delay={`${((i % 3) + 1) * 0.15}s`} key={r.file}>
-                                <img src={r.src} alt={r.alt} loading="lazy" />
+                                <img
+                                    src={r.src}
+                                    srcSet={r.srcSet}
+                                    sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
+                                    alt={r.alt}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </figure>
                         ))}
                     </div>

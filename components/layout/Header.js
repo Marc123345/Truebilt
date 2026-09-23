@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useEffect, useState } from 'react'
 import Sidebar from "./Sidebar"
 import { site, nav } from "@/data/site"
+import Icon from "../elements/Icon"
 
 export default function Header({ headerCls, headerTop }) {
     const [scroll, setScroll] = useState(0)
@@ -31,15 +32,15 @@ export default function Header({ headerCls, headerTop }) {
                                 <div className="header-top-left">
                                     <ul className="list-wrap">
                                         <li>{site.licenceLine} &mdash; {site.serviceArea}</li>
-                                        <li><i className="fas fa-phone-alt" /><Link href={site.phoneHref}>{site.phone}</Link></li>
-                                        <li><i className="fas fa-envelope" /><Link href={`mailto:${site.email}`}>{site.email}</Link></li>
+                                        <li><Icon name="phone-alt" /><Link href={site.phoneHref}>{site.phone}</Link></li>
+                                        <li><Icon name="envelope" /><Link href={`mailto:${site.email}`}>{site.email}</Link></li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="col-xl-4 col-lg-3">
                                 <div className="header-top-right">
                                     <div className="tb-top-cta">
-                                        <i className="fas fa-clipboard-check" /> Free inspections
+                                        <Icon name="clipboard-check" /> Free inspections
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +53,7 @@ export default function Header({ headerCls, headerTop }) {
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <div className="mobile-nav-toggler" onClick={handleToggled}><i className="fas fa-bars" /></div>
+                                <div className="mobile-nav-toggler" onClick={handleToggled}><Icon name="bars" /></div>
                                 <div className="menu-wrap">
                                     <nav className="menu-nav">
                                         <div className="logo different-logo">
@@ -72,7 +73,7 @@ export default function Header({ headerCls, headerTop }) {
                                             <ul className="list-wrap">
                                                 <li className="header-btn">
                                                     <Link href={site.phoneHref} className="btn">
-                                                        <i className="fas fa-phone-alt" /> {site.phone}
+                                                        <Icon name="phone-alt" /> {site.phone}
                                                     </Link>
                                                 </li>
                                             </ul>
@@ -82,7 +83,7 @@ export default function Header({ headerCls, headerTop }) {
                                 {/* Mobile Menu  */}
                                 <div className="mobile-menu">
                                     <nav className="menu-box">
-                                        <div className="close-btn" onClick={handleToggled}><i className="fas fa-times" /></div>
+                                        <div className="close-btn" onClick={handleToggled}><Icon name="times" /></div>
                                         <div className="nav-logo">
                                             <Link href="/" className="tb-logo tb-logo--light"><img src="/assets/img/logo/truebilt-logo-light.svg" alt="True Bilt Roofing" width="200" height="60" /></Link>
                                         </div>
@@ -90,8 +91,8 @@ export default function Header({ headerCls, headerTop }) {
                                             <Sidebar />
                                         </div>
                                         <div className="tb-mobile-contact">
-                                            <Link href={site.phoneHref}><i className="fas fa-phone-alt" /> {site.phone}</Link>
-                                            <Link href={`mailto:${site.email}`}><i className="fas fa-envelope" /> Email us</Link>
+                                            <Link href={site.phoneHref}><Icon name="phone-alt" /> {site.phone}</Link>
+                                            <Link href={`mailto:${site.email}`}><Icon name="envelope" /> Email us</Link>
                                         </div>
                                     </nav>
                                 </div>

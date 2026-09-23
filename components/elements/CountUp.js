@@ -15,5 +15,5 @@
  * means it is correct with JavaScript disabled.
  */
 export default function CountUp({ end }) {
-    return <span className="count odometer">{end}</span>
+    return <span className="count">{end}</span>
 }

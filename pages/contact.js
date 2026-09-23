@@ -2,6 +2,7 @@ import Link from "next/link"
 import Layout from "@/components/layout/Layout"
 import JotformEmbed from "@/components/sections/JotformEmbed"
 import { site, privacyNotice } from "@/data/site"
+import Icon from "@/components/elements/Icon"
 
 export default function Contact() {
     return (
@@ -25,21 +26,21 @@ export default function Contact() {
 
                                     <ul className="list-wrap tb-contact__list">
                                         <li>
-                                            <div className="icon"><i className="fas fa-phone-alt" /></div>
+                                            <div className="icon"><Icon name="phone-alt" /></div>
                                             <div className="content">
                                                 <h6>Call or text</h6>
                                                 <Link href={site.phoneHref}>{site.phone}</Link>
                                             </div>
                                         </li>
                                         <li>
-                                            <div className="icon"><i className="fas fa-envelope" /></div>
+                                            <div className="icon"><Icon name="envelope" /></div>
                                             <div className="content">
                                                 <h6>Email</h6>
                                                 <Link href={`mailto:${site.email}`}>{site.email}</Link>
                                             </div>
                                         </li>
                                         <li>
-                                            <div className="icon"><i className="fas fa-map-marker-alt" /></div>
+                                            <div className="icon"><Icon name="map-marker-alt" /></div>
                                             <div className="content">
                                                 <h6>Service area</h6>
                                                 <p>{site.serviceArea}</p>
@@ -48,7 +49,7 @@ export default function Contact() {
                                     </ul>
 
                                     <div className="tb-contact__note">
-                                        <i className="fas fa-bolt" />
+                                        <Icon name="bolt" />
                                         <p><strong>Got a leak?</strong> Say so in the message and we will move it up the list — repairs get fast turnaround.</p>
                                     </div>
                                 </div>

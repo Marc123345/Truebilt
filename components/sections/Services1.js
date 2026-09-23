@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useState } from 'react'
 import { services } from "@/data/site"
+import Icon from "../elements/Icon"
 
 export default function Services1({ limit }) {
     const [isActive, setIsActive] = useState({ status: false, key: "" })
@@ -42,15 +43,21 @@ export default function Services1({ limit }) {
                                         <img src={s.icon} alt="" />
                                     </div>
                                     <div className="services-content">
-                                        <h2 className="title" style={{ display: `${isActive.key == s.slug ? "none" : "block"}` }}>
+                                        <h3 className="title" style={{ display: `${isActive.key == s.slug ? "none" : "block"}` }}>
                                             <Link href={href(s)}>{s.title}</Link>
-                                        </h2>
-                                        <h2 className="number">{s.number}</h2>
+                                        </h3>
+                                        {/* Decorative card number — hidden from screen readers so
+                                            the service is not announced as "01". */}
+                                        <span className="number" aria-hidden="true">{s.number}</span>
                                     </div>
                                     <div className="services-overlay-content" style={{ display: `${isActive.key == s.slug ? "block" : "none"}` }}>
-                                        <h2 className="title"><Link href={href(s)}>{s.title}</Link></h2>
+                                        {/* The heading above already names the service; repeating it
+                                            here made every card announce its name twice. */}
+                                        <p className="services-overlay-content__name" aria-hidden="true">{s.title}</p>
                                         <p>{s.short}</p>
-                                        <Link href={href(s)} className="read-more">Read More <i className="fas fa-arrow-right" /></Link>
+                                        <Link href={href(s)} className="read-more">
+                                            Read more<span className="sr-only"> about {s.title}</span> <Icon name="arrow-right" />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

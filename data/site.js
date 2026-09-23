@@ -35,7 +35,12 @@ export const restorations = [
     { file: "30.png", alt: "A rust-striped metal roof before, and after a reflective coating" },
     { file: "34.png", alt: "A weathered metal roof over a workshop before, and after coating" },
     { file: "35.png", alt: "A red-rusted metal roof before, and after a coating system" },
-].map((r) => ({ ...r, src: `${IK}/${r.file}?tr=w-900` }))
+].map((r) => ({
+    ...r,
+    src: `${IK}/${r.file}?tr=w-900`,
+    // Phones show these one per row; there is no reason to send them 900px.
+    srcSet: [400, 640, 900].map((w) => `${IK}/${r.file}?tr=w-${w} ${w}w`).join(", "),
+}))
 
 // Rooftop footage. Video.mp4 is a crew spray-applying a coating; Video 2 is an
 // interior inspection of a ceiling stain.
@@ -56,8 +61,13 @@ export const videos = {
     },
 }
 
-// Roofer spray-applying a white coating. Used as the hero image on every page.
+// Roofer spray-applying a white coating. The hero image on every page.
+// Phones were being served the full 1620px file; these are the resized
+// variants the browser picks between.
 export const heroImage = "/assets/img/tb/spray.jpg"
+export const heroSrcSet =
+    "/assets/img/tb/spray-640.jpg 640w, /assets/img/tb/spray-1024.jpg 1024w, /assets/img/tb/spray-1440.jpg 1440w, /assets/img/tb/spray.jpg 1620w"
+export const heroSizes = "100vw"
 
 export const site = {
     name: "True Bilt LLC",

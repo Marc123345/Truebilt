@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { heroImage } from "@/data/site"
+import { heroImage, heroSrcSet, heroSizes } from "@/data/site"
 
 export default function Breadcrumb({ breadcrumbTitle }) {
     return (
@@ -7,7 +7,7 @@ export default function Breadcrumb({ breadcrumbTitle }) {
             <section className="breadcrumb-area breadcrumb-bg">
                 <img
                     className="tb-hero-img"
-                    src={heroImage}
+                    src={heroImage} srcSet={heroSrcSet} sizes={heroSizes}
                     alt=""
                     decoding="async"
                     fetchPriority="high"
@@ -17,7 +17,7 @@ export default function Breadcrumb({ breadcrumbTitle }) {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="breadcrumb-content">
-                                <h2 className="title">{breadcrumbTitle}</h2>
+                                <h1 className="title">{breadcrumbTitle}</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol className="breadcrumb">
                                         <li className="breadcrumb-item"><Link href="/">Home</Link></li>

@@ -1,8 +1,12 @@
 import { videos } from "@/data/site"
 
-function Clip({ clip, autoLoop }) {
+function Clip({ clip }) {
     return (
         <div className="tb-clip">
+            {/* The application clip used to autoplay on loop. Between the two
+                files that is nearly 3MB pulled on every visit, most of it on
+                phones that never scrolled this far. Both are now poster image
+                plus a play control, and nothing downloads until asked. */}
             <video
                 className="tb-clip__video"
                 src={clip.src}
@@ -10,9 +14,7 @@ function Clip({ clip, autoLoop }) {
                 controls
                 playsInline
                 preload="none"
-                muted={autoLoop}
-                autoPlay={autoLoop}
-                loop={autoLoop}
+                aria-label={clip.title}
             />
             <div className="tb-clip__body">
                 <h4 className="tb-clip__title">{clip.title}</h4>
@@ -37,7 +39,7 @@ export default function VideoBlocks() {
                     </div>
                     <div className="row">
                         <div className="col-lg-6">
-                            <Clip clip={videos.application} autoLoop />
+                            <Clip clip={videos.application} />
                         </div>
                         <div className="col-lg-6">
                             <Clip clip={videos.inspection} />

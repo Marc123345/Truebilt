@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { site, heroImage } from "@/data/site"
+import { site, heroImage, heroSrcSet, heroSizes } from "@/data/site"
+import Icon from "../elements/Icon"
 
 export default function Banner1() {
     return (
@@ -9,7 +10,7 @@ export default function Banner1() {
                 <div className="banner-bg">
                     <img
                         className="tb-hero-img"
-                        src={heroImage}
+                        src={heroImage} srcSet={heroSrcSet} sizes={heroSizes}
                         alt="A roofer spray-applying a white coating system across a flat roof"
                         decoding="async"
                         fetchPriority="high"
@@ -17,14 +18,14 @@ export default function Banner1() {
                     <div className="container">
                         <div className="banner-content">
                         <span className="tb-eyebrow wow fadeInDown" data-wow-delay=".1s">{site.serviceArea}</span>
-                        <h2 className="title wow fadeInDown" data-wow-delay=".2s">Roofs Built to Outlast the Weather</h2>
+                        <h1 className="title wow fadeInDown" data-wow-delay=".2s">Roofs Built to Outlast the Weather</h1>
                         <p className="wow fadeInUp" data-wow-delay=".2s">
                             Replacement, repair and Conklin restoration systems for homes, plants and commercial buildings across Lancaster, York and Delaware counties. Free inspections, and warranties up to 25 years.
                         </p>
                         <div className="tb-banner-actions wow fadeInUp" data-wow-delay=".4s">
                             <Link href="/contact" className="btn">Get a free inspection</Link>
                             <Link href={site.phoneHref} className="tb-call-link">
-                                <i className="fas fa-phone-alt" /> {site.phone}
+                                <Icon name="phone-alt" /> {site.phone}
                             </Link>
                             </div>
                         </div>

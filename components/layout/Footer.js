@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { site, nav, services } from "@/data/site"
+import Icon from "../elements/Icon"
 
 export default function Footer() {
     return (
@@ -17,9 +18,9 @@ export default function Footer() {
                                         <div className="footer-content">
                                             <p>Roof replacement, repair and Conklin coating systems for homes and commercial buildings across south-central Pennsylvania. {site.licenceLine}.</p>
                                             <ul className="list-wrap tb-footer-contact">
-                                                <li><i className="fas fa-phone-alt" /><Link href={site.phoneHref}>{site.phone}</Link></li>
-                                                <li><i className="fas fa-envelope" /><Link href={`mailto:${site.email}`}>{site.email}</Link></li>
-                                                <li><i className="fas fa-map-marker-alt" />{site.serviceArea}</li>
+                                                <li><Icon name="phone-alt" /><Link href={site.phoneHref}>{site.phone}</Link></li>
+                                                <li><Icon name="envelope" /><Link href={`mailto:${site.email}`}>{site.email}</Link></li>
+                                                <li><Icon name="map-marker-alt" />{site.serviceArea}</li>
                                             </ul>
                                         </div>
                                     </div>

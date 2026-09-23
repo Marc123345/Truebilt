@@ -2,6 +2,7 @@ import Link from "next/link"
 import Layout from "@/components/layout/Layout"
 import CtaBand from "@/components/sections/CtaBand"
 import { services, site } from "@/data/site"
+import Icon from "@/components/elements/Icon"
 
 export default function Services() {
     return (
@@ -40,16 +41,16 @@ export default function Services() {
                                             <div className="tb-service-row__icon">
                                                 <img src={s.icon} alt="" />
                                             </div>
-                                            <h3 className="tb-service-row__title">{s.title}</h3>
+                                            <h2 className="tb-service-row__title">{s.title}</h2>
                                             <p className="tb-service-row__short">{s.short}</p>
                                             <p>{s.text}</p>
                                             {s.slug === "roof-coatings" ? (
                                                 <Link href="/roof-coatings" className="link-btn">
-                                                    <i className="fas fa-arrow-right" /> How coating systems work
+                                                    <Icon name="arrow-right" /> How coating systems work
                                                 </Link>
                                             ) : (
                                                 <Link href="/contact" className="link-btn">
-                                                    <i className="fas fa-arrow-right" /> Book a free inspection
+                                                    <Icon name="arrow-right" /> Book a free inspection
                                                 </Link>
                                             )}
                                         </div>

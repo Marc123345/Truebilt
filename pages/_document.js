@@ -6,19 +6,19 @@ export default function Document() {
             <Head>
                 <link rel="icon" href="/assets/img/logo/favicon.svg" type="image/svg+xml" />
                 <link rel="preconnect" href="https://fonts.bunny.net" />
-                <link href="https://fonts.bunny.net/css?family=dm-sans:400,400i,500,500i,700,700i|poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet" />
+                <link rel="preconnect" href="https://fonts.bunny.net" crossOrigin="anonymous" />
+                <link rel="preload" as="image" href="/assets/img/tb/spray.jpg" fetchPriority="high" />
+                {/* Was 6 DM Sans weights and 18 Poppins weights, most of them unused.
+                    Trimmed to the five the site actually renders, and display=swap
+                    so text paints in a fallback instead of staying invisible. */}
+                <link
+                    href="https://fonts.bunny.net/css?family=dm-sans:400,500,700|poppins:600,700&display=swap"
+                    rel="stylesheet"
+                />
             </Head>
             <body>
                 <Main />
                 <NextScript />
-                {/* Jotform AI agent chat widget. Deliberately a plain script
-                    in the document rather than next/script: it then ships in
-                    the HTML and does not wait on React hydration. `defer`
-                    keeps it from blocking the page. */}
-                <script
-                    src="https://cdn.jotfor.ms/agent/embedjs/01a0cd36ece07000820699ee4c55f53e9633/embed.js"
-                    defer
-                />
             </body>
         </Html>
     )

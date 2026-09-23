@@ -1,14 +1,15 @@
 import { useEffect } from "react"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import ChatAgent from "@/components/elements/ChatAgent"
+
+// Stylesheets the template shipped that nothing on this site uses any more
+// were removed here: slick (no carousels — the slider is CSS scroll-snap),
+// magnific-popup (no lightbox), odometer (the counter is plain text),
+// tg-cursor (no custom cursor) and jarallax (no parallax). Font Awesome went
+// too — its thirteen glyphs are inline SVG now (components/elements/Icon.js),
+// which drops 57KB of CSS and a 76KB webfont from every page load.
 import "../public/assets/css/bootstrap.min.css"
-import "../public/assets/css/animate.min.css"
-import "../public/assets/css/magnific-popup.css"
-import "../public/assets/css/fontawesome-all.min.css"
-import "../public/assets/css/odometer.css"
-import "../public/assets/css/tg-cursor.css"
+import "../public/assets/css/animate-subset.css"
 import "../public/assets/css/default.css"
-import "../public/assets/css/jarallax.css"
 import "../public/assets/css/style.css"
 import "../public/assets/css/responsive.css"
 import "../public/assets/css/tb.css"
@@ -25,7 +26,12 @@ function MyApp({ Component, pageProps }) {
         }
     }, [])
 
-    return <Component {...pageProps} />
+    return (
+        <>
+            <Component {...pageProps} />
+            <ChatAgent />
+        </>
+    )
 }
 
 export default MyApp

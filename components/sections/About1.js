@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { site } from "@/data/site"
+import Icon from "../elements/Icon"
 
 export default function About1() {
     return (
@@ -42,9 +43,9 @@ export default function About1() {
                                 </p>
                                 <div className="about-list">
                                     <ul className="list-wrap">
-                                        <li><i className="fas fa-check" />{site.licenceLine}</li>
-                                        <li><i className="fas fa-check" />Residential and commercial work</li>
-                                        <li><i className="fas fa-check" />Free inspections before any quote</li>
+                                        <li><Icon name="check" />{site.licenceLine}</li>
+                                        <li><Icon name="check" />Residential and commercial work</li>
+                                        <li><Icon name="check" />Free inspections before any quote</li>
                                     </ul>
                                 </div>
                                 <Link href="/about" className="btn">More about us</Link>
