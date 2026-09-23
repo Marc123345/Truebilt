@@ -1,17 +1,9 @@
 import Link from "next/link"
-import { useState } from "react"
 import Layout from "@/components/layout/Layout"
-import { site, services } from "@/data/site"
+import JotformEmbed from "@/components/sections/JotformEmbed"
+import { site, privacyNotice } from "@/data/site"
 
 export default function Contact() {
-    // No backend is wired up yet — see the TODO below.
-    const [sent, setSent] = useState(false)
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setSent(true)
-    }
-
     return (
         <>
             <Layout
@@ -64,64 +56,11 @@ export default function Contact() {
 
                             <div className="col-lg-7">
                                 <div className="tb-contact__formwrap">
-                                    {sent ? (
-                                        <div className="tb-contact__sent">
-                                            <i className="fas fa-check-circle" />
-                                            <h3>Thanks — that has not gone anywhere yet.</h3>
-                                            <p>
-                                                This form is not connected to an inbox at the moment. Until it is, please call or text{" "}
-                                                <Link href={site.phoneHref}>{site.phone}</Link> or email{" "}
-                                                <Link href={`mailto:${site.email}`}>{site.email}</Link>.
-                                            </p>
-                                        </div>
-                                    ) : (
-                                        <form onSubmit={handleSubmit} className="tb-form">
-                                            <div className="row">
-                                                <div className="col-md-6">
-                                                    <label htmlFor="tb-name">Your name</label>
-                                                    <input id="tb-name" name="name" type="text" required placeholder="Jane Smith" />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label htmlFor="tb-phone">Phone</label>
-                                                    <input id="tb-phone" name="phone" type="tel" required placeholder="(717) 000-0000" />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label htmlFor="tb-email">Email</label>
-                                                    <input id="tb-email" name="email" type="email" placeholder="you@example.com" />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label htmlFor="tb-county">County</label>
-                                                    <select id="tb-county" name="county" defaultValue="">
-                                                        <option value="" disabled>Choose one</option>
-                                                        {site.counties.map((c) => (
-                                                            <option key={c} value={c}>{c}, PA</option>
-                                                        ))}
-                                                        <option value="other">Somewhere else</option>
-                                                    </select>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <label htmlFor="tb-service">What do you need?</label>
-                                                    <select id="tb-service" name="service" defaultValue="">
-                                                        <option value="" disabled>Choose one</option>
-                                                        {services.map((s) => (
-                                                            <option key={s.slug} value={s.slug}>{s.title}</option>
-                                                        ))}
-                                                        <option value="not-sure">Not sure yet</option>
-                                                    </select>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <label htmlFor="tb-message">Tell us about the roof</label>
-                                                    <textarea id="tb-message" name="message" rows={5} placeholder="Age of the roof, what you are seeing, whether it is leaking..." />
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <button type="submit" className="btn">Request my free inspection</button>
-                                                    <p className="tb-form__alt">
-                                                        Prefer to talk? Call or text <Link href={site.phoneHref}>{site.phone}</Link>.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    )}
+                                    <JotformEmbed
+                                        formId={site.jotformId}
+                                        title="True Bilt free roof inspection request"
+                                    />
+                                    <p className="tb-privacy">{privacyNotice}</p>
                                 </div>
                             </div>
                         </div>
@@ -131,13 +70,3 @@ export default function Contact() {
         </>
     )
 }
-
-/*
- * ⚠ TODO — the form does not submit anywhere.
- *
- * It validates and shows a confirmation that tells the visitor to call
- * instead, so no lead is silently lost. Before launch, point it at whatever
- * Marc is using for the other sites (Jotform, or a POST handler that emails
- * dave.truebilt@gmail.com). David listed phone, contact form and text as his
- * three preferred contact methods, so this one matters.
- */

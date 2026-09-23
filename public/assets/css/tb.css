@@ -702,3 +702,17 @@
     .tb-restore__grid { grid-template-columns: 1fr; gap: 18px; }
     .tb-clip__body { padding: 22px 20px 24px; }
 }
+
+/* ---------- jotform embed + privacy notice ---------- */
+.tb-jotform { border-radius: 10px; overflow: hidden; }
+.tb-jotform iframe { width: 100%; border: 0; display: block; }
+.tb-privacy {
+    margin: 22px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--tb-line);
+    color: var(--tb-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+.tb-contact__formwrap { padding: 28px; }
+@media (max-width: 575px) { .tb-contact__formwrap { padding: 18px 14px; } }

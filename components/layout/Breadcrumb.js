@@ -1,10 +1,11 @@
 import Link from "next/link"
+import { heroImage } from "@/data/site"
 
 export default function Breadcrumb({ breadcrumbTitle }) {
     return (
         <>
-            <section className="breadcrumb-area breadcrumb-bg" data-background="/assets/img/bg/breadcrumb_bg.jpg">
-                <div className="breadcrumb-shape" data-background="/assets/img/images/breadcrumb_shape.png" />
+            <section className="breadcrumb-area breadcrumb-bg" data-background={heroImage}>
+                
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">

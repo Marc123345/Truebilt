@@ -56,6 +56,9 @@ export const videos = {
     },
 }
 
+// Roofer spray-applying a white coating. Used as the hero image on every page.
+export const heroImage = "/assets/img/tb/spray.jpg"
+
 export const site = {
     name: "True Bilt LLC",
     shortName: "True Bilt",
@@ -71,11 +74,19 @@ export const site = {
     // state on his licence, the site says "Licensed & Insured" with no state.
     licenceLine: "Licensed & Insured",
     serviceArea: "Lancaster, York & Delaware Counties, PA",
+    // Jotform inspection request. Carries the US consent checkbox (TCPA) and
+    // the privacy notice below.
+    jotformId: "262651128467057",
     counties: ["Lancaster County", "York County", "Delaware County"],
     state: "Pennsylvania",
 }
 
 // The four things David asked to have highlighted, verbatim from the form.
+// Shown under the form and on its own page. Plain-language, and deliberately
+// narrow: it only claims what the site actually does with an enquiry.
+export const privacyNotice =
+    "We collect the name, phone number, email address and property address you enter here, plus any job details you choose to describe. We use it for one purpose: to contact you about your estimate and carry out the work if you hire us. We do not sell or share your personal information, and we do not use it for targeted advertising. We keep enquiry records for up to 24 months. If you are a California resident you may request access to, correction of, or deletion of your information by calling or emailing us."
+
 export const trustPoints = [
     {
         icon: "/assets/img/icon/features_icon01.svg",
@@ -245,4 +256,10 @@ export const nav = [
  * 4. TESTIMONIALS AND REVIEWS. None were supplied and there is no Google
  *    Business Profile yet, so there is no reviews section anywhere.
  * 5. ADDRESS. No street address was given, so only the service area appears.
+ * 6. CONSENT + PRIVACY. The Jotform carries a required US consent checkbox
+ *    (call/text/email, automated systems, STOP/HELP, "consent is not a
+ *    condition of purchase") and the privacy notice in `privacyNotice`.
+ *    David should confirm the 24-month retention period is what he actually
+ *    does, and that the CCPA line is how he wants to handle California
+ *    requests, since it points at his phone and email.
  */

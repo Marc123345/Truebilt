@@ -1,10 +1,10 @@
 import Link from "next/link"
-import { site } from "@/data/site"
+import { site, heroImage } from "@/data/site"
 
 export default function CtaBand() {
     return (
         <>
-            <section className="tb-cta" data-background="/assets/img/bg/appointment_bg.jpg">
+            <section className="tb-cta" data-background={heroImage}>
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-7">
