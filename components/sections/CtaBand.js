@@ -4,7 +4,8 @@ import { site, heroImage } from "@/data/site"
 export default function CtaBand() {
     return (
         <>
-            <section className="tb-cta" data-background={heroImage}>
+            <section className="tb-cta">
+                <img className="tb-hero-img" src={heroImage} alt="" decoding="async" loading="lazy" />
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-7">

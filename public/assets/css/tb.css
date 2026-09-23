@@ -7,14 +7,15 @@
    here and the whole site follows.
    ========================================================================== */
 :root {
-    --tb-primary: #1B8A4B;        /* True Bilt green */
-    --tb-primary-dark: #14683A;   /* hover / pressed */
-    --tb-primary-soft: rgba(27, 138, 75, 0.12);
-    --tb-secondary: #0C2A1C;      /* deep evergreen — dark panels, headings */
-    --tb-ink: #14261D;
-    --tb-muted: #5b6b62;
-    --tb-line: #dfe9e3;
-    --tb-soft: #f2f7f4;           /* the off-white the whole site breathes on */
+    /* Taken straight from David's logo. */
+    --tb-primary: #F28C28;        /* True Bilt orange */
+    --tb-primary-dark: #D2741A;   /* hover / pressed */
+    --tb-primary-soft: rgba(242, 140, 40, 0.12);
+    --tb-secondary: #17212B;      /* logo navy — dark panels, headings */
+    --tb-ink: #17212B;
+    --tb-muted: #59636E;          /* the logo's grey, used for body copy */
+    --tb-line: #e3e7ec;
+    --tb-soft: #f5f7f9;           /* the off-white the whole site breathes on */
 
     /* Vertical rhythm — every section uses these, nothing sets its own. */
     --tb-section: 110px;
@@ -34,12 +35,12 @@
 .btn::before,
 .btn::after { background: var(--tb-primary-dark) !important; }
 .services-item::after {
-    background: linear-gradient(100.16deg, var(--tb-primary) 1.96%, rgba(12, 42, 28, 0) 198.08%) !important;
+    background: linear-gradient(100.16deg, var(--tb-primary) 1.96%, rgba(23, 33, 43, 0) 198.08%) !important;
 }
-.services-icon { box-shadow: 0 0 30px rgba(27, 138, 75, 0.35) !important; }
+.services-icon { box-shadow: 0 0 30px rgba(242, 140, 40, 0.35) !important; }
 .features-item-inner::after,
 .features-icon::after {
-    background: linear-gradient(180deg, rgba(27, 138, 75, 0.14) 0%, rgba(27, 138, 75, 0) 100%) !important;
+    background: linear-gradient(180deg, rgba(242, 140, 40, 0.14) 0%, rgba(242, 140, 40, 0) 100%) !important;
 }
 [class*="shadow"] { box-shadow: none; }
 
@@ -283,7 +284,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(12, 42, 28, 0.96) 35%, rgba(12, 42, 28, 0.74) 100%);
+    background: linear-gradient(90deg, rgba(23, 33, 43, 0.96) 35%, rgba(23, 33, 43, 0.74) 100%);
 }
 .tb-cta .container { position: relative; z-index: 2; }
 .tb-cta__content .title {
@@ -522,13 +523,13 @@
 .section-title { margin-bottom: 50px; }
 .about-content .section-title { margin-bottom: 22px; }
 
-/* Logo lockup */
-.tb-logo { display: inline-flex; align-items: center; gap: 12px; }
-.tb-logo img { width: 42px; height: 42px; display: block; }
-.tb-logo__word { line-height: 1; }
-.tb-logo__word b { color: var(--tb-primary); font-weight: 700; }
-.tb-logo--light .tb-logo__word,
-.tb-logo--light .tb-logo__word b { color: #fff; }
+/* Logo lockup — David's supplied SVG. The light variant is the same file with
+   the navy swapped for white, for the footer and the mobile menu. */
+.tb-logo { display: inline-flex; align-items: center; }
+.tb-logo img { width: auto; height: 52px; display: block; }
+.nav-logo .tb-logo img,
+.footer-widget .tb-logo img { height: 56px; }
+@media (max-width: 575px) { .tb-logo img { height: 42px; } }
 
 @media (max-width: 1400px) {
     .banner-area { padding-left: 120px; }
@@ -579,7 +580,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(12, 42, 28, 0.92) 0%, rgba(12, 42, 28, 0.55) 100%);
+    background: linear-gradient(90deg, rgba(23, 33, 43, 0.86) 0%, rgba(23, 33, 43, 0.38) 100%);
     z-index: -1;
 }
 .breadcrumb-content .breadcrumb-item a { color: rgba(255, 255, 255, 0.75); }
@@ -587,14 +588,14 @@
 
 /* The big card numbers and a few tinted panels are orange-derived. */
 .services-content .number {
-    background: linear-gradient(180deg, rgba(27, 138, 75, 0.20) 0%, rgba(27, 138, 75, 0) 100%) !important;
+    background: linear-gradient(180deg, rgba(242, 140, 40, 0.22) 0%, rgba(242, 140, 40, 0) 100%) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
 }
 :root {
-    --tg-seashell: #eef5f1;
-    --tg-unbleached-silk: #cfe5d9;
+    --tg-seashell: #fdf3e9;
+    --tg-unbleached-silk: #f9d9b4;
 }
 
 /* ==========================================================================
@@ -716,3 +717,39 @@
 }
 .tb-contact__formwrap { padding: 28px; }
 @media (max-width: 575px) { .tb-contact__formwrap { padding: 18px 14px; } }
+
+/* ==========================================================================
+   HERO IMAGERY
+   These were `data-background` attributes that a useEffect turned into a CSS
+   background. That meant no hero image existed in the served HTML at all —
+   every banner was a blank colour band until the JavaScript ran. They are
+   real <img> elements now, so they render immediately and are discoverable
+   by the browser's preload scanner.
+   ========================================================================== */
+.tb-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* The image, the tint and the text stack in that order. Everything stays at
+   z-index 0 or above: a negative z-index would paint the photo behind the
+   section's own background colour, which is exactly what hid it at first. */
+.breadcrumb-area { position: relative; z-index: 0; overflow: hidden; }
+.breadcrumb-area .tb-hero-img { z-index: 0; }
+.breadcrumb-area::after { z-index: 1; }
+.breadcrumb-area .container { position: relative; z-index: 2; }
+
+.banner-bg { position: relative; z-index: 0; overflow: hidden; }
+.banner-bg .tb-hero-img { z-index: 0; }
+.banner-bg::before { z-index: 1; }
+.banner-bg .container { position: relative; z-index: 2; }
+
+.tb-cta { position: relative; z-index: 0; overflow: hidden; }
+.tb-cta .tb-hero-img { z-index: 0; }
+.tb-cta::before { z-index: 1; }
+.tb-cta .container { position: relative; z-index: 2; }

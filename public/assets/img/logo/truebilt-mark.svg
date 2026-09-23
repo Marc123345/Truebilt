@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="True Bilt">
-  <rect width="48" height="48" rx="11" fill="#1B8A4B"/>
-  <!-- layered roof: the upper chevron is the finished system, the lower one the
-       deck beneath it — the two-layer idea the whole site is built around -->
-  <path d="M10 24.5 L24 12.5 L38 24.5" fill="none" stroke="#FFFFFF" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M14 33.5 L24 25 L34 33.5" fill="none" stroke="#FFFFFF" stroke-width="3.2"
-        stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
-</svg>

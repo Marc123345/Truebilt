@@ -56,10 +56,10 @@ export default function Header({ headerCls, headerTop }) {
                                 <div className="menu-wrap">
                                     <nav className="menu-nav">
                                         <div className="logo different-logo">
-                                            <Link href="/" className="tb-logo"><img src="/assets/img/logo/truebilt-mark.svg" alt="" width="44" height="44" /><span className="tb-logo__word">True <b>Bilt</b></span></Link>
+                                            <Link href="/" className="tb-logo"><img src="/assets/img/logo/truebilt-logo.svg" alt="True Bilt Roofing" width="200" height="60" /></Link>
                                         </div>
                                         <div className="logo d-none">
-                                            <Link href="/" className="tb-logo"><img src="/assets/img/logo/truebilt-mark.svg" alt="" width="44" height="44" /><span className="tb-logo__word">True <b>Bilt</b></span></Link>
+                                            <Link href="/" className="tb-logo"><img src="/assets/img/logo/truebilt-logo.svg" alt="True Bilt Roofing" width="200" height="60" /></Link>
                                         </div>
                                         <div className="navbar-wrap main-menu d-none d-lg-flex">
                                             <ul className="navigation">
@@ -84,7 +84,7 @@ export default function Header({ headerCls, headerTop }) {
                                     <nav className="menu-box">
                                         <div className="close-btn" onClick={handleToggled}><i className="fas fa-times" /></div>
                                         <div className="nav-logo">
-                                            <Link href="/" className="tb-logo tb-logo--light"><img src="/assets/img/logo/truebilt-mark-light.svg" alt="" width="44" height="44" /><span className="tb-logo__word">True <b>Bilt</b></span></Link>
+                                            <Link href="/" className="tb-logo tb-logo--light"><img src="/assets/img/logo/truebilt-logo-light.svg" alt="True Bilt Roofing" width="200" height="60" /></Link>
                                         </div>
                                         <div className="menu-outer">
                                             <Sidebar />

@@ -4,7 +4,14 @@ import { heroImage } from "@/data/site"
 export default function Breadcrumb({ breadcrumbTitle }) {
     return (
         <>
-            <section className="breadcrumb-area breadcrumb-bg" data-background={heroImage}>
+            <section className="breadcrumb-area breadcrumb-bg">
+                <img
+                    className="tb-hero-img"
+                    src={heroImage}
+                    alt=""
+                    decoding="async"
+                    fetchPriority="high"
+                />
                 
                 <div className="container">
                     <div className="row">

@@ -6,7 +6,14 @@ export default function Banner1() {
         <>
             <section className="banner-area">
                 <div className="banner-shape" />
-                <div className="banner-bg" data-background={heroImage}>
+                <div className="banner-bg">
+                    <img
+                        className="tb-hero-img"
+                        src={heroImage}
+                        alt="A roofer spray-applying a white coating system across a flat roof"
+                        decoding="async"
+                        fetchPriority="high"
+                    />
                     <div className="container">
                         <div className="banner-content">
                         <span className="tb-eyebrow wow fadeInDown" data-wow-delay=".1s">{site.serviceArea}</span>
