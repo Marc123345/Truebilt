@@ -55,12 +55,14 @@ export default function ChatAgent() {
                     queryParams: ["skipWelcome=1", "maximizable=1"],
                     domain: "https://www.jotform.com",
                     isDraggable: false,
-                    background: "linear-gradient(180deg, #0b2238 0%, #0b2238 100%)",
+                    // Matches the home hero: deep navy into logo navy.
+                    background: "linear-gradient(180deg, #0B2238 0%, #034984 100%)",
                     // Deep navy from the logo palette; white text on it is 15:1.
                     chatBackgroundColor: "#0B2238",
-                    // Logo navy with a white icon (9.2:1).
-                    buttonBackgroundColor: "#034984",
-                    buttonIconColor: "#FFFFFF",
+                    // Gold launcher with a navy icon, like the hero's primary
+                    // button (7.2:1).
+                    buttonBackgroundColor: "#C9A961",
+                    buttonIconColor: "#0B2238",
                     inputTextColor: "#ffffff",
                     variant: false,
                     customizations: {
