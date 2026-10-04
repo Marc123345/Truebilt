@@ -16,6 +16,10 @@
     /* Logo gold. 3.6:1 on white — decoration and large text only, never
        body copy or white-on-gold buttons. */
     --tb-gold: #9D8246;
+    /* Gold for small text on white — 5.5:1. */
+    --tb-gold-text: #7E6631;
+    /* Gold on the dark navy panels — 7.2:1 against --tb-secondary. */
+    --tb-gold-light: #C9A961;
     --tb-secondary: #0B2238;      /* deep navy — dark panels, headings */
     --tb-ink: #0B2238;
     --tb-muted: #59636E;
@@ -997,3 +1001,65 @@ footer *:focus-visible,
 .tb-work__more svg { width: 20px; height: 20px; }
 @media (max-width: 1199px) { .tb-work__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 575px) { .tb-work__grid { grid-template-columns: 1fr; gap: 18px; } }
+
+
+/* ==========================================================================
+   GOLD ACCENT — the 10%
+   60/30/10: white/off-white is the 60, navy the 30, logo gold the 10. Gold
+   goes only on small accents — eyebrows, icons, numbers, rules, active
+   states, and the one primary button on each dark panel. Never body copy.
+   ========================================================================== */
+
+/* Eyebrow labels above every section title. */
+.sub-title,
+.tg-element-title.sub-title,
+.tb-work__tag,
+.tb-fact__num { color: var(--tb-gold-text); }
+.tb-cta .sub-title,
+footer .sub-title,
+.breadcrumb-area .sub-title { color: var(--tb-gold-light); }
+
+/* Hero. */
+.tb-eyebrow { border-color: var(--tb-gold-light); color: #fff; }
+.tb-call-link i,
+.tb-call-link .tb-icon,
+.tb-call-link:hover { color: var(--tb-gold-light); }
+
+/* Icons beside text. */
+.about-list .tb-icon { color: var(--tb-gold); }
+.tb-footer-contact .tb-icon,
+.header-top-left .tb-icon,
+.header-top-right .tb-icon,
+.tb-mobile-contact i,
+.tb-mobile-contact .tb-icon { color: var(--tb-gold-light); }
+
+/* Numbers and rules. */
+.tb-service-row__num { background: var(--tb-gold); color: var(--tb-secondary); }
+.counter-item { border-top: 3px solid var(--tb-gold); }
+.fw-title { position: relative; padding-bottom: 14px; }
+.fw-title::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 36px; height: 3px;
+    background: var(--tb-gold);
+    border-radius: 2px;
+}
+.footer-link-list a:hover { color: var(--tb-gold-light); }
+
+/* Active states. */
+.tb-accordion__item.is-open { border-color: var(--tb-gold); }
+.tb-accordion__q i,
+.tb-accordion__q .tb-icon { color: var(--tb-gold); }
+.tb-slider__dot[aria-current="true"]::before,
+.tb-slider__dot.is-active::before { background: var(--tb-gold); }
+
+/* On the dark CTA band and in the footer a navy button disappears into the
+   navy panel, so the primary button there is gold with navy text (7.2:1). */
+.tb-cta .tb-cta__actions .btn:first-child,
+footer .btn {
+    background: var(--tb-gold-light);
+    color: var(--tb-secondary) !important;
+}
+.tb-cta .tb-cta__actions .btn:first-child::before,
+footer .btn::before { background: var(--tb-gold) !important; }
