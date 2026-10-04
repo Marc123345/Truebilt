@@ -64,7 +64,8 @@ export default function ChatAgent() {
                     inputTextColor: "#ffffff",
                     variant: false,
                     customizations: {
-                        greeting: "Yes",
+                        // The greeting bubble opened over the bottom-right of every page.
+                        greeting: "No",
                         greetingMessage: "Need a roof looked at? Ask me anything.",
                         openByDefault: "No",
                         pulse: "Yes",

@@ -1092,3 +1092,69 @@ footer .btn::before { background: var(--tb-gold) !important; }
 /* Footer link hover — the template's rule is more specific than ours was. */
 .footer-link-list .list-wrap li a:hover,
 .footer-link-list ul li a:hover { color: var(--tb-gold-light); }
+
+/* ==========================================================================
+   SITE-WIDE LAYOUT PASS (4 Oct 2026)
+   ========================================================================== */
+
+/* Hero: navy behind the photo, so a slow image load shows brand colour
+   instead of a white half-screen. */
+.banner-bg { background-color: var(--tb-secondary); }
+
+/* Feature cards: the icon circle sits bottom-right and the last line of
+   copy was running underneath it. Keep text clear of the circle. */
+.features-content { padding-right: 96px; }
+@media (max-width: 575px) { .features-content { padding-right: 70px; } }
+
+/* Home service cards — static content (see Services1.js). The template's
+   hover swapped the card to a gradient with no text change, which left dark
+   text on a dark fill. Hover is now a lift and a gold edge. */
+.tb-service-card {
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 38px 34px 34px;
+    border: 1px solid var(--tb-line);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.tb-service-card::after { display: none !important; }
+.tb-service-card:hover::before { opacity: 1; }
+.tb-service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--tb-gold);
+    box-shadow: 0 14px 34px rgba(11, 34, 56, 0.08);
+}
+.services-item.tb-service-card .services-icon { width: 72px; height: 72px; margin-bottom: 26px; }
+.tb-service-card .services-icon img { width: 34px; height: 34px; }
+.tb-service-card .services-content .title { font-size: 22px; margin-bottom: 10px; }
+.tb-service-card .services-content .title a { color: var(--tb-ink); }
+.tb-service-card .services-content .title a:hover { color: var(--tb-primary); }
+.tb-service-card__text { color: var(--tb-muted); font-size: 15px; margin-bottom: 16px; }
+.tb-service-card .read-more {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-weight: 600; font-size: 15px; color: var(--tb-primary-text);
+}
+.tb-service-card .read-more .tb-icon { width: 16px; height: 16px; }
+.tb-service-card .services-content .number { font-size: 76px; top: 18px; right: 18px; }
+
+/* Back-to-back grey sections each carried full top and bottom padding,
+   leaving ~220px of empty grey between them. Halve the seam. */
+.tb-coating-area + .counter-area,
+.counter-area + .faq-area,
+.counter-area + .tb-areas,
+.tb-coating-area + .tb-restore { padding-top: 0; }
+.tb-coating-area:has(+ .counter-area),
+.tb-coating-area:has(+ .tb-restore) { padding-bottom: 60px; }
+.counter-area:has(+ .faq-area),
+.counter-area:has(+ .tb-areas) { padding-bottom: 60px; }
+
+/* Contact: the aside is much shorter than the form, so it sticks beside
+   it instead of leaving a tall blank column. */
+@media (min-width: 992px) {
+    .tb-contact__aside { position: sticky; top: 130px; }
+}
+
+/* Buttons are white-space: nowrap in the template, so a long label ("See
+   what your roof would take") pushed the page wider than a phone screen. */
+@media (max-width: 575px) {
+    .btn { white-space: normal; max-width: 100%; text-align: center; line-height: 1.35; }
+}

@@ -39,12 +39,14 @@ export default function Reveal() {
                     io.unobserve(e.target)
                 })
             },
-            { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+            // Fire a quarter-screen *before* the element arrives, so scrolling at a
+            // normal speed never shows an empty, not-yet-revealed section.
+            { rootMargin: "0px 0px 25% 0px", threshold: 0 }
         )
         below.forEach((n) => io.observe(n))
 
         // Failsafe: whatever happens, nothing stays hidden.
-        const failsafe = setTimeout(() => below.forEach((n) => n.classList.add("tb-in")), 4000)
+        const failsafe = setTimeout(() => below.forEach((n) => n.classList.add("tb-in")), 2500)
 
         return () => {
             io.disconnect()

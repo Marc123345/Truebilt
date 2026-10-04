@@ -1,19 +1,8 @@
 import Link from "next/link"
-import { useState } from 'react'
 import { services } from "@/data/site"
 import Icon from "../elements/Icon"
 
 export default function Services1({ limit }) {
-    const [isActive, setIsActive] = useState({ status: false, key: "" })
-
-    const handleToggle = (key) => {
-        if (isActive.key === key) {
-            setIsActive({ status: false })
-        } else {
-            setIsActive({ status: true, key })
-        }
-    }
-
     const list = limit ? services.slice(0, limit) : services
     const href = (s) => (s.slug === "roof-coatings" ? "/roof-coatings" : "/services")
 
@@ -32,29 +21,19 @@ export default function Services1({ limit }) {
                     <div className="row justify-content-center">
                         {list.map((s, i) => (
                             <div className="col-lg-4 col-md-6 col-sm-10" key={s.slug}>
-                                <div
-                                    className="services-item wow fadeInUp"
-                                    data-wow-delay={`${((i % 3) + 1) * 0.2}s`}
-                                    data-background={s.image}
-                                    onMouseEnter={() => handleToggle(s.slug)}
-                                    onMouseLeave={() => handleToggle(s.slug)}
-                                >
-                                    <div className="services-icon" style={{ display: `${isActive.key == s.slug ? "none" : "flex"}` }}>
+                                {/* Every card shows its summary and link at all times. The
+                                    template hid them until hover, which left an empty middle
+                                    on desktop and no description at all on touch screens. */}
+                                <div className="services-item tb-service-card wow fadeInUp" data-wow-delay={`${((i % 3) + 1) * 0.2}s`}>
+                                    <div className="services-icon">
                                         <img src={s.icon} alt="" />
                                     </div>
                                     <div className="services-content">
-                                        <h3 className="title" style={{ display: `${isActive.key == s.slug ? "none" : "block"}` }}>
+                                        <span className="number" aria-hidden="true">{s.number}</span>
+                                        <h3 className="title">
                                             <Link href={href(s)}>{s.title}</Link>
                                         </h3>
-                                        {/* Decorative card number — hidden from screen readers so
-                                            the service is not announced as "01". */}
-                                        <span className="number" aria-hidden="true">{s.number}</span>
-                                    </div>
-                                    <div className="services-overlay-content" style={{ display: `${isActive.key == s.slug ? "block" : "none"}` }}>
-                                        {/* The heading above already names the service; repeating it
-                                            here made every card announce its name twice. */}
-                                        <p className="services-overlay-content__name" aria-hidden="true">{s.title}</p>
-                                        <p>{s.short}</p>
+                                        <p className="tb-service-card__text">{s.short}</p>
                                         <Link href={href(s)} className="read-more">
                                             Read more<span className="sr-only"> about {s.title}</span> <Icon name="arrow-right" />
                                         </Link>

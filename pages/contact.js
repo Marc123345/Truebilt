@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Layout from "@/components/layout/Layout"
 import JotformEmbed from "@/components/sections/JotformEmbed"
-import { site, privacyNotice } from "@/data/site"
+import { site } from "@/data/site"
 import Icon from "@/components/elements/Icon"
 
 export default function Contact() {
@@ -61,7 +61,6 @@ export default function Contact() {
                                         formId={site.jotformId}
                                         title="True Bilt free roof inspection request"
                                     />
-                                    <p className="tb-privacy">{privacyNotice}</p>
                                 </div>
                             </div>
                         </div>
