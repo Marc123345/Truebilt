@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import ChatAgent from "@/components/elements/ChatAgent"
 
 // Stylesheets the template shipped that nothing on this site uses any more
 // were removed here: slick (no carousels — the slider is CSS scroll-snap),
@@ -29,7 +28,6 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Component {...pageProps} />
-            <ChatAgent />
         </>
     )
 }

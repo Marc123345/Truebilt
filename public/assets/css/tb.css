@@ -978,13 +978,6 @@ footer *:focus-visible,
 .header-lang .dropdown-toggle::after,
 .faq-wrap .accordion-button::after { content: none; }
 
-/* The chat launcher sits bottom-right over the contact form's submit button on
-   small screens. Give the page room so nothing is permanently covered. */
-@media (max-width: 767px) {
-    .tb-contact { padding-bottom: calc(var(--tb-section) + 90px); }
-    .footer-bottom { padding-bottom: 80px; }
-}
-
 /* ---------- our work: David's own jobs ---------- */
 .tb-work { padding: var(--tb-section) 0; }
 .tb-work__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 10px; }
