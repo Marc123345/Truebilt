@@ -4,7 +4,7 @@ import Icon from "../elements/Icon"
 // David's own jobs — the only photos on the site captioned as True Bilt work.
 export default function OurWork() {
     return (
-        <section className="tb-work">
+        <section className="tb-work" id="our-work">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-8">

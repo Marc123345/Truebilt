@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout"
 
-import Banner1 from "@/components/sections/Banner1"
+import Hero from "@/components/sections/Hero"
 import Features1 from "@/components/sections/Features1"
 import About1 from "@/components/sections/About1"
 import Services1 from "@/components/sections/Services1"
@@ -14,7 +14,7 @@ export default function Home() {
     return (
         <>
             <Layout headerTop={true}>
-                <Banner1 />
+                <Hero />
                 <Features1 />
                 <About1 />
                 <Services1 />
