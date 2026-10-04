@@ -55,12 +55,12 @@ export default function ChatAgent() {
                     queryParams: ["skipWelcome=1", "maximizable=1"],
                     domain: "https://www.jotform.com",
                     isDraggable: false,
-                    background: "linear-gradient(180deg, #17212b 0%, #17212b 100%)",
-                    // Was #f28c28 with white text (2.45:1). Navy gives 16.3:1.
-                    chatBackgroundColor: "#17212B",
-                    // Was #051258, a blue that is in neither the logo nor the site.
-                    buttonBackgroundColor: "#F28C28",
-                    buttonIconColor: "#17212B",
+                    background: "linear-gradient(180deg, #0b2238 0%, #0b2238 100%)",
+                    // Deep navy from the logo palette; white text on it is 15:1.
+                    chatBackgroundColor: "#0B2238",
+                    // Logo navy with a white icon (9.2:1).
+                    buttonBackgroundColor: "#034984",
+                    buttonIconColor: "#FFFFFF",
                     inputTextColor: "#ffffff",
                     variant: false,
                     customizations: {

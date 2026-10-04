@@ -8,6 +8,7 @@ import CoatingExplainer from "@/components/sections/CoatingExplainer"
 import Counter1 from "@/components/sections/Counter1"
 import Faq1 from "@/components/sections/Faq1"
 import CtaBand from "@/components/sections/CtaBand"
+import OurWork from "@/components/sections/OurWork"
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
                 <Features1 />
                 <About1 />
                 <Services1 />
+                <OurWork />
                 <CoatingExplainer />
                 <Counter1 />
                 <Faq1 />

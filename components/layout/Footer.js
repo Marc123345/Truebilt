@@ -13,7 +13,7 @@ export default function Footer() {
                                 <div className="col-xl-4 col-lg-4 col-md-6">
                                     <div className="footer-widget">
                                         <div className="fw-logo mb-20">
-                                            <Link href="/" className="tb-logo tb-logo--light"><img src="/assets/img/logo/truebilt-logo-light.svg" alt="True Bilt Roofing" width="200" height="60" /></Link>
+                                            <Link href="/" className="tb-logo tb-logo--light"><img src="/assets/img/logo/truebilt-logo-light.png" alt="True Bilt LLC" width="640" height="325" /></Link>
                                         </div>
                                         <div className="footer-content">
                                             <p>Roof replacement, repair and Conklin coating systems for homes and commercial buildings across south-central Pennsylvania. {site.licenceLine}.</p>
@@ -21,6 +21,9 @@ export default function Footer() {
                                                 <li><Icon name="phone-alt" /><Link href={site.phoneHref}>{site.phone}</Link></li>
                                                 <li><Icon name="envelope" /><Link href={`mailto:${site.email}`}>{site.email}</Link></li>
                                                 <li><Icon name="map-marker-alt" />{site.serviceArea}</li>
+                                                {site.facebook && (
+                                                    <li><Icon name="facebook" /><a href={site.facebook} target="_blank" rel="noopener noreferrer">Follow us on Facebook</a></li>
+                                                )}
                                             </ul>
                                         </div>
                                     </div>

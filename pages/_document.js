@@ -4,7 +4,8 @@ export default function Document() {
     return (
         <Html lang="en" id="#top">
             <Head>
-                <link rel="icon" href="/assets/img/logo/favicon.svg" type="image/svg+xml" />
+                <link rel="icon" href="/assets/img/logo/truebilt-mark-192.png" type="image/png" />
+                <link rel="apple-touch-icon" href="/assets/img/logo/truebilt-mark-512.png" />
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link rel="preconnect" href="https://fonts.bunny.net" crossOrigin="anonymous" />
                 <link rel="preload" as="image" href="/assets/img/tb/spray.jpg" fetchPriority="high" />

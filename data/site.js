@@ -61,6 +61,47 @@ export const videos = {
     },
 }
 
+// David's own jobs, supplied 4 Oct 2026 in "truebilt website.pdf". These are
+// the only photos on the site documented as True Bilt work, so they are the
+// only ones captioned as "our work". Captions are his, lightly edited.
+const job = (name, big = true) => ({
+    src: `/assets/img/tb/jobs/${name}-${big ? 1200 : 640}.jpg`,
+    srcSet: big
+        ? `/assets/img/tb/jobs/${name}-640.jpg 640w, /assets/img/tb/jobs/${name}-1200.jpg 1200w`
+        : `/assets/img/tb/jobs/${name}-640.jpg 640w`,
+})
+export const jobs = [
+    {
+        ...job("metal-restoration"),
+        title: "Metal Restoration System",
+        tag: "Commercial · Coating",
+        text: "A commercial metal roof mid-restoration — fasteners sealed, coating going on panel by panel.",
+        alt: "A commercial metal roof half coated in white, with the uncoated dark panels and sealed fasteners in the foreground",
+    },
+    {
+        ...job("tpo-over-metal"),
+        title: "TPO Over Metal Panels",
+        tag: "Commercial · TPO",
+        text: "TPO roofing installed over commercial metal panels with 3\" foam insulation board.",
+        alt: "A white TPO membrane being installed over corrugated commercial metal panels, with stacks of foam insulation board on the roof",
+    },
+    {
+        ...job("tpo-roofing"),
+        title: "TPO Roofing",
+        tag: "Commercial · TPO",
+        text: "A finished TPO single-ply roof with heat-welded seams.",
+        alt: "A finished white TPO roof with long welded seams running across it",
+    },
+    {
+        // The PDF copy of this one is only 736px wide, so there is no 1200 variant.
+        ...job("metal-roofing-siding", false),
+        title: "Metal Roofing & Siding",
+        tag: "Residential · Metal",
+        text: "A two-bay garage finished in metal roofing and siding.",
+        alt: "A two-bay garage with a dark metal roof, white metal siding and black wainscot",
+    },
+]
+
 // Roofer spray-applying a white coating. The hero image on every page.
 // Phones were being served the full 1620px file; these are the resized
 // variants the browser picks between.
@@ -87,6 +128,9 @@ export const site = {
     // Jotform inspection request. Carries the US consent checkbox (TCPA) and
     // the privacy notice below.
     jotformId: "262651128467057",
+    // From David's PDF. ⚠ This is a share link to a Facebook reel, not his
+    // page URL — swap in the page address when he sends it.
+    facebook: "https://www.facebook.com/share/r/19ammyUKCV/",
     counties: ["Lancaster County", "York County", "Delaware County"],
     state: "Pennsylvania",
 }
@@ -130,7 +174,8 @@ export const services = [
         number: "02",
         title: "Roof Coatings & Restoration",
         icon: "/assets/img/icon/services_icon02.svg",
-        image: `${IK}/Sylicone.jpeg?tr=w-800,h-600,fo-auto`,
+        // David's own job.
+        image: "/assets/img/tb/jobs/metal-restoration-1200.jpg",
         short: "Conklin systems that restore a sound roof instead of replacing it.",
         text: "A fluid-applied, industrial-grade membrane — often with fabric reinforcement at the seams — installed over a roof that is still structurally sound. It costs less than a tear-off, it goes on without shutting your building down, and it renews.",
     },
@@ -157,18 +202,20 @@ export const services = [
         number: "05",
         title: "Flat & Commercial Roofing",
         icon: "/assets/img/icon/services_icon05.svg",
-        image: `${IK}/Asyrc.png?tr=w-800,h-600,fo-auto`,
-        short: "Low-slope roofs for manufacturing, food production and hospitality.",
-        text: "Flat and low-slope roofs fail differently to pitched ones — ponding, seam splits, failed flashing. We work on plants, warehouses, food facilities and hotels, and we work around your operation rather than through it.",
+        // David's own job.
+        image: "/assets/img/tb/jobs/tpo-over-metal-1200.jpg",
+        short: "TPO and low-slope roofs for manufacturing, food production and hospitality.",
+        text: "Flat and low-slope roofs fail differently to pitched ones — ponding, seam splits, failed flashing. We install TPO single-ply roofing, including over existing commercial metal panels with rigid foam insulation, on plants, warehouses, food facilities and hotels — and we work around your operation rather than through it.",
     },
     {
         slug: "metal-roofing",
         number: "06",
-        title: "Metal Roofing",
+        title: "Metal Roofing & Siding",
         icon: "/assets/img/icon/services_icon06.svg",
-        image: `${IK}/34.png?tr=w-800,h-600,fo-auto`,
-        short: "New metal roofs, and coating systems for the metal you already have.",
-        text: "Metal lasts, but fasteners back out and seams open up. We install new metal roofing, and we restore existing metal with a coating system that seals the seams and stops the rust cycle.",
+        // David's own job.
+        image: "/assets/img/tb/jobs/metal-roofing-siding-640.jpg",
+        short: "New metal roofs and siding, and coating systems for the metal you already have.",
+        text: "Metal lasts, but fasteners back out and seams open up. We install new metal roofing and siding, and we restore existing metal with a coating system that seals the seams and stops the rust cycle.",
     },
     {
         slug: "shingle-roofing",
@@ -253,16 +300,20 @@ export const nav = [
  *    The site currently says "Licensed & Insured" with no state. Confirm
  *    which state the licence is in, and the licence number if he wants it
  *    shown.
- * 2. LOGO. David says he has one; it has not been sent. The site uses a mark
- *    drawn for him (two stacked roof chevrons — the coating over the deck) in
- *    /public/assets/img/logo/. Colours are green/white per Marc, set as
- *    --tb-primary / --tb-secondary at the top of /public/assets/css/tb.css.
- * 3. PHOTOGRAPHY. David answered "No — need help with this". The coating
- *    photos, the nine before/after restorations and the two videos come from
- *    Marc's ImageKit library. ⚠ NONE of them is documented as a True Bilt job.
- *    They are captioned as what a coating system does, never as "our work".
- *    Before launch David should either confirm which are his, supply his own,
- *    or agree to the current framing. Everything else is template stock.
+ * 2. LOGO — DONE 4 Oct 2026. His official navy/gold logo came in
+ *    "truebilt website.pdf" and is in /public/assets/img/logo/ (PNG, cut
+ *    from the PDF at 1080px — ask for the vector file for print). The site
+ *    palette now follows it: --tb-primary navy, --tb-gold in tb.css.
+ * 3. PHOTOGRAPHY — PARTLY DONE. Four of David's own jobs (`jobs` above) are
+ *    in the "Our Work" gallery and on three service rows. Everything else —
+ *    the coating photos, the nine before/after restorations and the two
+ *    videos — is still from Marc's ImageKit library and NOT documented as
+ *    his, so it stays captioned as what a coating system does. The garage
+ *    photo is low-res (736px) and looks professionally shot; worth
+ *    confirming it is his job. Roof replacement, repair, storm damage and
+ *    shingle rows still use template stock.
+ * 7. FACEBOOK. The PDF gave a reel share link, used in the footer and
+ *    under the gallery. Get his page URL to replace it.
  * 4. TESTIMONIALS AND REVIEWS. None were supplied and there is no Google
  *    Business Profile yet, so there is no reviews section anywhere.
  * 5. ADDRESS. No street address was given, so only the service area appears.

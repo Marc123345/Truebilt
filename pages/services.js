@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Layout from "@/components/layout/Layout"
 import CtaBand from "@/components/sections/CtaBand"
+import OurWork from "@/components/sections/OurWork"
 import { services, site } from "@/data/site"
 import Icon from "@/components/elements/Icon"
 
@@ -60,6 +61,7 @@ export default function Services() {
                         ))}
                     </div>
                 </section>
+                <OurWork />
                 <CtaBand />
             </Layout>
         </>

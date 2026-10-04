@@ -26,6 +26,7 @@ const P = {
     plus: <><path d="M12 5v14" /><path d="M5 12h14" /></>,
     minus: <path d="M5 12h14" />,
     "level-up-alt": <><path d="M12 20V6" /><path d="m6 11 6-6 6 6" /></>,
+    facebook: <path d="M14 8.5V6.8c0-.8.4-1.3 1.4-1.3H17V2.6c-.4 0-1.4-.1-2.5-.1-2.5 0-4 1.5-4 4.1v1.9H8v3.2h2.5V21.5H14V11.7h2.6l.4-3.2H14Z" />,
 }
 
 export default function Icon({ name, className = "", title }) {
