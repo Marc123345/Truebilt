@@ -1063,3 +1063,32 @@ footer .btn {
 }
 .tb-cta .tb-cta__actions .btn:first-child::before,
 footer .btn::before { background: var(--tb-gold) !important; }
+
+/* ==========================================================================
+   ABOUT PAGE FIXES (4 Oct 2026)
+   ========================================================================== */
+
+/* .about-area drops its top padding because on the home page it follows the
+   features row. On /about it follows the page hero, so the photo was butting
+   straight into the hero. Give it the full section rhythm back. */
+.about-area.tb-about-intro { padding: var(--tb-section) 0; }
+.tb-about-intro .about-img-wrap { margin-bottom: 0; }
+@media (max-width: 991px) {
+    .about-area.tb-about-intro { padding: var(--tb-section-sm) 0; }
+    .tb-about-intro .about-img-wrap { margin-bottom: 40px; }
+}
+
+/* The "How we work" icons are the features SVGs, which are navy now — on a
+   navy tile they vanished. Knock them out to white. */
+.tb-value__icon img { filter: brightness(0) invert(1); }
+
+/* Breadcrumb: the current page was navy on the dark hero. */
+.breadcrumb-content .breadcrumb-item.active { color: var(--tb-gold-light); }
+
+/* Counter cards sit in flex columns and were shrinking to their content,
+   so the four cards came out at different widths. */
+.counter-item { width: 100%; text-align: left; }
+
+/* Footer link hover — the template's rule is more specific than ours was. */
+.footer-link-list .list-wrap li a:hover,
+.footer-link-list ul li a:hover { color: var(--tb-gold-light); }

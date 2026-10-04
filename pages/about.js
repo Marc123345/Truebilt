@@ -14,7 +14,7 @@ export default function About() {
                 headTitle="About True Bilt"
                 description={`True Bilt LLC is a ${site.state} roofing company run by ${site.owner}, working across ${site.serviceArea} for ${site.yearsInBusiness} years.`}
             >
-                <section className="about-area pt-120 pb-120">
+                <section className="about-area tb-about-intro">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-xl-7 col-lg-6 order-0 order-lg-2">
