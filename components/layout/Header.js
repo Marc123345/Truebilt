@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { useEffect, useState } from 'react'
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from 'react'
 import Sidebar from "./Sidebar"
 import { site, nav } from "@/data/site"
 import Icon from "../elements/Icon"
@@ -7,20 +8,39 @@ import Icon from "../elements/Icon"
 export default function Header({ headerCls, headerTop }) {
     const [scroll, setScroll] = useState(0)
 
+    const router = useRouter()
     const [isToggled, setToggled] = useState(false)
-    const handleToggled = () => {
-        setToggled(!isToggled)
-        !isToggled ? document.body.classList.add("mobile-menu-visible") : document.body.classList.remove("mobile-menu-visible")
-    }
+
+    // The template only toggled the menu from the hamburger and the X. The
+    // header stays mounted across page changes, so picking a page left the
+    // menu open over the new one. It now closes on navigation, on a tap on
+    // the backdrop, and on Escape.
+    const setMenu = useCallback((open) => {
+        setToggled(open)
+        document.body.classList.toggle("mobile-menu-visible", open)
+    }, [])
+    const handleToggled = () => setMenu(!isToggled)
+    const closeMenu = useCallback(() => setMenu(false), [setMenu])
 
     useEffect(() => {
-        document.addEventListener("scroll", () => {
-            const scrollCheck = window.scrollY > 100
-            if (scrollCheck !== scroll) {
-                setScroll(scrollCheck)
-            }
-        })
-    })
+        router.events.on("routeChangeStart", closeMenu)
+        const onKey = (e) => { if (e.key === "Escape") closeMenu() }
+        document.addEventListener("keydown", onKey)
+        return () => {
+            router.events.off("routeChangeStart", closeMenu)
+            document.removeEventListener("keydown", onKey)
+            document.body.classList.remove("mobile-menu-visible")
+        }
+    }, [router.events, closeMenu])
+
+    // One listener, removed on unmount (the template added a new one on
+    // every render and never removed any).
+    useEffect(() => {
+        const onScroll = () => setScroll(window.scrollY > 100)
+        onScroll()
+        window.addEventListener("scroll", onScroll, { passive: true })
+        return () => window.removeEventListener("scroll", onScroll)
+    }, [])
     return (
         <>
 
@@ -53,7 +73,7 @@ export default function Header({ headerCls, headerTop }) {
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <div className="mobile-nav-toggler" onClick={handleToggled}><Icon name="bars" /></div>
+                                <button type="button" className="mobile-nav-toggler" onClick={handleToggled} aria-label="Open menu" aria-expanded={isToggled} aria-controls="tb-mobile-menu"><Icon name="bars" /></button>
                                 <div className="menu-wrap">
                                     <nav className="menu-nav">
                                         <div className="logo different-logo">
@@ -81,22 +101,22 @@ export default function Header({ headerCls, headerTop }) {
                                     </nav>
                                 </div>
                                 {/* Mobile Menu  */}
-                                <div className="mobile-menu">
-                                    <nav className="menu-box">
-                                        <div className="close-btn" onClick={handleToggled}><Icon name="times" /></div>
+                                <div className="mobile-menu" id="tb-mobile-menu">
+                                    <nav className="menu-box" aria-label="Mobile">
+                                        <button type="button" className="close-btn" onClick={closeMenu} aria-label="Close menu"><Icon name="times" /></button>
                                         <div className="nav-logo">
-                                            <Link href="/" className="tb-logo tb-logo--light"><img src="/assets/img/logo/truebilt-logo-light.png" alt="True Bilt LLC" width="640" height="325" /></Link>
+                                            <Link href="/" className="tb-logo tb-logo--light" onClick={closeMenu}><img src="/assets/img/logo/truebilt-logo-light.png" alt="True Bilt LLC" width="640" height="325" /></Link>
                                         </div>
                                         <div className="menu-outer">
-                                            <Sidebar />
+                                            <Sidebar onNavigate={closeMenu} />
                                         </div>
                                         <div className="tb-mobile-contact">
-                                            <Link href={site.phoneHref}><Icon name="phone-alt" /> {site.phone}</Link>
-                                            <Link href={`mailto:${site.email}`}><Icon name="envelope" /> Email us</Link>
+                                            <Link href={site.phoneHref} onClick={closeMenu}><Icon name="phone-alt" /> {site.phone}</Link>
+                                            <Link href={`mailto:${site.email}`} onClick={closeMenu}><Icon name="envelope" /> Email us</Link>
                                         </div>
                                     </nav>
                                 </div>
-                                <div className="menu-backdrop" />
+                                <div className="menu-backdrop" onClick={closeMenu} aria-hidden="true" />
                                 {/* End Mobile Menu */}
                             </div>
                         </div>

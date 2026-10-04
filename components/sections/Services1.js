@@ -24,7 +24,11 @@ export default function Services1({ limit }) {
                                 {/* Every card shows its summary and link at all times. The
                                     template hid them until hover, which left an empty middle
                                     on desktop and no description at all on touch screens. */}
-                                <div className="services-item tb-service-card wow fadeInUp" data-wow-delay={`${((i % 3) + 1) * 0.2}s`}>
+                                <div
+                                    className="services-item tb-service-card wow fadeInUp"
+                                    data-wow-delay={`${((i % 3) + 1) * 0.2}s`}
+                                    style={{ "--tb-card-img": `url(${s.image})` }}
+                                >
                                     <div className="services-icon">
                                         <img src={s.icon} alt="" />
                                     </div>

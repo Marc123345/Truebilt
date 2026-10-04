@@ -1099,9 +1099,8 @@ footer .btn::before { background: var(--tb-gold) !important; }
 .features-content { padding-right: 96px; }
 @media (max-width: 575px) { .features-content { padding-right: 70px; } }
 
-/* Home service cards — static content (see Services1.js). The template's
-   hover swapped the card to a gradient with no text change, which left dark
-   text on a dark fill. Hover is now a lift and a gold edge. */
+/* Home service cards — static content (see Services1.js). Hover treatment
+   (photo + navy gradient, white text) is in the SERVICE CARD HOVER block. */
 .tb-service-card {
     justify-content: flex-start;
     min-height: 0;
@@ -1109,8 +1108,6 @@ footer .btn::before { background: var(--tb-gold) !important; }
     border: 1px solid var(--tb-line);
     transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
-.tb-service-card::after { display: none !important; }
-.tb-service-card:hover::before { opacity: 1; }
 .tb-service-card:hover {
     transform: translateY(-4px);
     border-color: var(--tb-gold);
@@ -1120,7 +1117,7 @@ footer .btn::before { background: var(--tb-gold) !important; }
 .tb-service-card .services-icon img { width: 34px; height: 34px; }
 .tb-service-card .services-content .title { font-size: 22px; margin-bottom: 10px; }
 .tb-service-card .services-content .title a { color: var(--tb-ink); }
-.tb-service-card .services-content .title a:hover { color: var(--tb-primary); }
+
 .tb-service-card__text { color: var(--tb-muted); font-size: 15px; margin-bottom: 16px; }
 .tb-service-card .read-more {
     display: inline-flex; align-items: center; gap: 6px;
@@ -1379,3 +1376,112 @@ footer .btn::before { background: var(--tb-gold) !important; }
     .tb-hero__job { right: 10px; left: 10px; bottom: 0; max-width: none; }
     .tb-hero__edge { height: 44px; }
 }
+
+/* ==========================================================================
+   SERVICE CARD HOVER — the template's photo reveal, restored.
+   On hover the white face fades out, the service photo shows through under
+   a navy gradient, and the text turns white. The content itself no longer
+   swaps (that left touch users with no description), only the treatment.
+   Only on devices that can actually hover, so a tap on a phone does not
+   leave a card stuck in its dark state.
+   ========================================================================== */
+.tb-service-card {
+    background-image: var(--tb-card-img);
+    background-size: cover;
+    background-position: center;
+}
+.tb-service-card::before { transition: opacity .35s ease; }
+.tb-service-card::after {
+    display: block !important;
+    background: linear-gradient(160deg, rgba(3, 73, 132, 0.86) 0%, rgba(11, 34, 56, 0.9) 100%) !important;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+.tb-service-card .services-content .title a,
+.tb-service-card__text,
+.tb-service-card .read-more,
+.tb-service-card .services-content .number { transition: color .3s ease, -webkit-text-fill-color .3s ease; }
+.tb-service-card .services-icon { transition: background .3s ease, box-shadow .3s ease; }
+
+@media (hover: hover) {
+    .tb-service-card:hover { transform: translateY(-6px); border-color: transparent; box-shadow: 0 22px 44px rgba(11, 34, 56, 0.22); }
+    .tb-service-card:hover::before { opacity: 0; }
+    .tb-service-card:hover::after { opacity: 1; }
+    .tb-service-card:hover .services-content .title a,
+    .tb-service-card:hover .services-content .title a:hover { color: #fff; }
+    .tb-service-card:hover .tb-service-card__text { color: rgba(255, 255, 255, 0.85); }
+    .tb-service-card:hover .read-more { color: var(--tb-gold-light); }
+    .tb-service-card:hover .services-icon { background: var(--tb-gold-light); box-shadow: none !important; }
+    .tb-service-card:hover .services-icon img { filter: brightness(0) saturate(100%) invert(11%) sepia(26%) saturate(2400%) hue-rotate(185deg); }
+    .tb-service-card:hover .services-content .number {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+    }
+}
+/* Keyboard users get the same treatment when a link inside has focus. */
+.tb-service-card:focus-within::before { opacity: 0; }
+.tb-service-card:focus-within::after { opacity: 1; }
+.tb-service-card:focus-within .services-content .title a { color: #fff; }
+.tb-service-card:focus-within .tb-service-card__text { color: rgba(255, 255, 255, 0.85); }
+.tb-service-card:focus-within .read-more { color: var(--tb-gold-light); }
+.tb-service-card:focus-within *:focus-visible { outline-color: var(--tb-gold-light); }
+
+/* ==========================================================================
+   TOUCH TARGETS — 44×44px minimum on phones and tablets (WCAG 2.5.5).
+   ========================================================================== */
+button.mobile-nav-toggler,
+button.close-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+}
+@media (max-width: 991px) {
+    .menu-area .mobile-nav-toggler {
+        width: 48px; height: 48px;
+        display: inline-flex; align-items: center; justify-content: center;
+        margin-top: 0; margin-right: -10px;
+    }
+    .menu-area .mobile-nav-toggler .tb-icon { width: 28px; height: 28px; }
+    .mobile-menu .close-btn {
+        width: 48px; height: 48px; top: 16px; right: 10px;
+        display: inline-flex; align-items: center; justify-content: center;
+    }
+    .mobile-menu .close-btn .tb-icon { width: 24px; height: 24px; }
+    .mobile-menu .navigation li > a {
+        min-height: 52px; display: flex; align-items: center;
+        padding: 12px 25px; font-size: 17px;
+    }
+    .tb-mobile-contact a { display: flex; align-items: center; min-height: 48px; }
+    .header-top-left .list-wrap li a,
+    .footer-link-list a,
+    .tb-footer-contact a,
+    .tb-work__more a,
+    .link-btn,
+    .read-more,
+    .tb-cta__alt,
+    .breadcrumb-item a {
+        display: inline-flex; align-items: center; min-height: 44px;
+    }
+    .footer-link-list .list-wrap li { margin-bottom: 0; }
+    .tb-accordion__q { min-height: 56px; }
+    .btn { min-height: 52px; }
+    .tb-chip { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* Mobile menu panel: the template's is white, but the logo and contact
+   links in it are the light versions, so both were invisible. Navy panel,
+   white links, gold accents — matches the hero. */
+.mobile-menu .menu-box { background: var(--tb-secondary); }
+.mobile-menu .navigation li > a { color: #fff; }
+.mobile-menu .navigation li { border-top-color: rgba(255, 255, 255, 0.1) !important; }
+.mobile-menu .navigation { border-top-color: rgba(255, 255, 255, 0.1) !important; }
+.mobile-menu .navigation li > a:hover,
+.mobile-menu .navigation li > a:focus-visible { color: var(--tb-gold-light); }
+.mobile-menu .close-btn { color: var(--tb-gold-light); }
+.tb-mobile-contact { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+/* Breadcrumb separator sat lower than the links once they became 44px tall. */
+.breadcrumb { align-items: center; }
+.tb-mobile-contact a { gap: 10px; }
