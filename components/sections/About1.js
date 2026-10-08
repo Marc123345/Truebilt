@@ -39,7 +39,7 @@ export default function About1() {
                                     <h2 className="title tg-element-title">We Would Rather Do It Once, Properly</h2>
                                 </div>
                                 <p>
-                                    True Bilt is a {site.state} roofing company run by {site.owner}. For {site.yearsInBusiness} years we have worked on homes, manufacturing plants, food facilities and hotels across Lancaster, York and Delaware counties — and the approach has not changed: look at the roof honestly, explain what it actually needs, and install a system that holds.
+                                    True Bilt is a {site.state} roofing company. For {site.yearsInBusiness} years we have worked on homes, manufacturing plants, food facilities and hotels across Lancaster, York and Delaware counties — and the approach has not changed: look at the roof honestly, explain what it actually needs, and install a system that holds.
                                 </p>
                                 <div className="about-list">
                                     <ul className="list-wrap">

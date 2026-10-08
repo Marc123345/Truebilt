@@ -7,7 +7,7 @@ const PageHead = ({ headTitle, description }) => {
         : `Roofing Contractor in Lancaster, York & Delaware Counties PA | ${site.name}`
     const desc = description
         ? description
-        : `${site.name} — roof replacement, repair, metal, shingle, flat commercial roofing and Conklin roof coating systems across Lancaster, York and Delaware counties, PA. Free inspections and warranties up to 25 years.`
+        : `${site.name} — GAF shingle roofing, roof replacement, repair, metal, flat commercial roofing, Conklin roof coating systems and painting across Lancaster, York and Delaware counties, PA. Free inspections and warranties up to 40 years.`
     return (
         <>
             <Head>

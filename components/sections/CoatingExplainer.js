@@ -63,9 +63,9 @@ export default function CoatingExplainer({ showCta = true }) {
                         <div className="col-lg-8">
                             <div className="section-title text-center tg-heading-subheading animation-style3">
                                 <span className="sub-title tg-element-title">Conklin Roof Systems</span>
-                                <h2 className="title tg-element-title" id="tb-coating-title">We Are Not Painting Your Roof</h2>
+                                <h2 className="title tg-element-title" id="tb-coating-title">A Complete Roof System, Applied as a Liquid</h2>
                                 <p className="tb-lede">
-                                    This is the part worth understanding before you compare quotes, because it is the difference between a finish and a roof.
+                                    Here is what goes into a Conklin system, and why it is worth understanding before you compare quotes.
                                 </p>
                             </div>
                         </div>

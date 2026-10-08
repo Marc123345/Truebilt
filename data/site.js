@@ -113,7 +113,7 @@ export const heroSizes = "100vw"
 export const site = {
     name: "True Bilt LLC",
     shortName: "True Bilt",
-    owner: "David King",
+    // David asked (8 Oct 2026) for his personal name to be kept off the site.
     // Area code 717 = south-central Pennsylvania, consistent with the counties.
     phone: "(717) 615-7585",
     phoneHref: "tel:+17176157585",
@@ -149,8 +149,8 @@ export const trustPoints = [
     },
     {
         icon: "/assets/img/icon/features_icon02.svg",
-        title: "Up to 25-Year Warranties",
-        text: "Our Conklin coating systems carry warranties of up to 25 years — renewable, not a one-time fix.",
+        title: "Warranties Up to 40 Years",
+        text: "GAF asphalt shingle roofs carry a 40-year warranty, and our Conklin coating systems carry warranties of up to 25 years.",
     },
     {
         icon: "/assets/img/icon/features_icon03.svg",
@@ -170,8 +170,17 @@ export const services = [
         text: "When a roof is too far gone to restore, we strip it back, inspect the decking, fix what is underneath and build it again properly. You get one crew, one point of contact and a clear price before anything comes off.",
     },
     {
-        slug: "roof-coatings",
+        slug: "shingle-roofing",
         number: "02",
+        title: "GAF Asphalt Shingle Roofing",
+        icon: "/assets/img/icon/services_icon01.svg",
+        image: "/assets/img/services/h4_services_img02.jpg",
+        short: "GAF asphalt shingle roofs for homes and commercial buildings, with a 40-year warranty.",
+        text: "A large share of our work, residential and commercial, is asphalt shingle roofing. We install GAF shingles, backed by a 40-year warranty, with the underlayment, ventilation and flashing details done right, because that is what decides how long a shingle roof lasts.",
+    },
+    {
+        slug: "roof-coatings",
+        number: "03",
         title: "Roof Coatings & Restoration",
         icon: "/assets/img/icon/services_icon02.svg",
         // David's own job.
@@ -181,7 +190,7 @@ export const services = [
     },
     {
         slug: "roof-repair",
-        number: "03",
+        number: "04",
         title: "Roof Repair",
         icon: "/assets/img/icon/services_icon03.svg",
         image: "/assets/img/services/services_item03.jpg",
@@ -190,7 +199,7 @@ export const services = [
     },
     {
         slug: "storm-damage",
-        number: "04",
+        number: "05",
         title: "Storm & Hail Damage Restoration",
         icon: "/assets/img/icon/services_icon04.svg",
         image: "/assets/img/services/services_item04.jpg",
@@ -199,7 +208,7 @@ export const services = [
     },
     {
         slug: "flat-commercial",
-        number: "05",
+        number: "06",
         title: "Flat & Commercial Roofing",
         icon: "/assets/img/icon/services_icon05.svg",
         // David's own job.
@@ -209,7 +218,7 @@ export const services = [
     },
     {
         slug: "metal-roofing",
-        number: "06",
+        number: "07",
         title: "Metal Roofing & Siding",
         icon: "/assets/img/icon/services_icon06.svg",
         // David's own job.
@@ -218,21 +227,24 @@ export const services = [
         text: "Metal lasts, but fasteners back out and seams open up. We install new metal roofing and siding, and we restore existing metal with a coating system that seals the seams and stops the rust cycle.",
     },
     {
-        slug: "shingle-roofing",
-        number: "07",
-        title: "Shingle Roofing",
-        icon: "/assets/img/icon/services_icon01.svg",
-        image: "/assets/img/services/sb_img01.jpg",
-        short: "Residential asphalt shingle replacement and repair.",
-        text: "Straightforward, well-installed shingle roofs for homes across Lancaster, York and Delaware counties — with the underlayment, ventilation and flashing details done right, because that is what actually determines how long it lasts.",
+        // David, 8 Oct 2026: "We actually do some painting too!" Scope (interior,
+        // exterior, residential, commercial) not confirmed yet, so the copy stays general.
+        slug: "painting",
+        number: "08",
+        title: "Painting",
+        icon: "/assets/img/icon/services_icon06.svg",
+        // ⚠ Placeholder stock — no painting photo yet.
+        image: "/assets/img/services/services_item05.jpg",
+        short: "Painting work alongside our roofing, from the same crew you already trust.",
+        text: "As well as roofing, we take on painting work. Tell us about the job and we will come out, take a look and give you a clear price before anything starts.",
     },
 ]
 
 // David's own words on the coatings objection, turned into page copy.
 export const coatingFacts = [
     {
-        title: "It is a system, not a coat of paint",
-        text: "This is the thing most people get wrong. A Conklin roof system is an industrial-grade membrane applied as a liquid — base coat, fabric reinforcement over the seams and details, then top coats. When it cures it is a single, seamless layer across the whole roof. Paint sits on a surface. This becomes the roof.",
+        title: "A complete, reinforced roof system",
+        text: "A Conklin roof system is an industrial-grade membrane applied as a liquid — base coat, fabric reinforcement over the seams and details, then top coats. When it cures it forms a single, seamless layer across the whole roof.",
     },
     {
         title: "Restoration instead of replacement",
@@ -251,20 +263,20 @@ export const coatingFacts = [
 // Only numbers that come from the intake form. No invented statistics.
 export const counters = [
     { icon: "/assets/img/icon/counter_icon01.svg", count: 5, suffix: "", label: "Years in business" },
-    { icon: "/assets/img/icon/counter_icon02.svg", count: 25, suffix: "", label: "Year warranties available" },
-    { icon: "/assets/img/icon/counter_icon03.svg", count: 7, suffix: "", label: "Roofing services offered" },
+    { icon: "/assets/img/icon/counter_icon02.svg", count: 40, suffix: "", label: "Year GAF shingle warranty" },
+    { icon: "/assets/img/icon/counter_icon03.svg", count: 8, suffix: "", label: "Services offered" },
     { icon: "/assets/img/icon/counter_icon04.svg", count: 3, suffix: "", label: "PA counties served" },
 ]
 
 // Straight from the "common objections" answer on the intake form.
 export const faqs = [
     {
-        q: "Why are your prices higher than other quotes I am getting?",
-        a: "Because the system is not the same. We install Conklin, which costs more than most of what is out there, and we do not cut the details — fabric reinforcement at the seams, proper prep, the right number of coats. A cheaper quote is usually a cheaper system or a thinner application. We will show you exactly what you are paying for and let you compare like with like.",
+        q: "What goes into the price of a coating system?",
+        a: "We install Conklin, a premium system, and we do every detail properly — fabric reinforcement at the seams, thorough prep and the full specified number of coats. We will show you exactly what you are paying for, so you can compare quotes like with like.",
     },
     {
-        q: "Is a roof coating just painting my roof?",
-        a: "No. That is the most common misunderstanding we run into. A coating system is an industrial-grade membrane installed in layers, usually with fabric reinforcement over the seams and penetrations. Paint is a finish. This is a roof.",
+        q: "What exactly is a roof coating system?",
+        a: "An industrial-grade membrane installed in layers as a liquid, usually with fabric reinforcement over the seams and penetrations. Once cured it forms one seamless, waterproof layer across the whole roof, and it can be recoated when the warranty term ends.",
     },
     {
         q: "Can you restore my roof instead of replacing it?",
@@ -277,6 +289,10 @@ export const faqs = [
     {
         q: "Do you handle storm and hail damage?",
         a: "Yes. We inspect, photograph and give you a written assessment of the damage so you have documentation of what actually happened to your roof.",
+    },
+    {
+        q: "Do you install shingle roofs?",
+        a: "Yes, and a lot of our work is asphalt shingle roofing on both homes and commercial buildings. We install GAF shingles with a 40-year warranty.",
     },
     {
         q: "Which areas do you cover?",
@@ -323,4 +339,9 @@ export const nav = [
  *    David should confirm the 24-month retention period is what he actually
  *    does, and that the CCPA line is how he wants to handle California
  *    requests, since it points at his phone and email.
+ * 8. FEEDBACK 8 Oct 2026 (done): personal name removed; "not paint" copy
+ *    softened; GAF shingles (40-yr warranty) promoted; Painting added.
+ *    Still need: what painting he does (interior/exterior, res/commercial)
+ *    and a painting photo; whether he holds a GAF certification tier
+ *    (the site only says "we install GAF" — no certification claimed).
  */

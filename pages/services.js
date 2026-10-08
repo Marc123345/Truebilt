@@ -12,7 +12,7 @@ export default function Services() {
                 headerTop={true}
                 breadcrumbTitle="Our Services"
                 headTitle="Roofing Services"
-                description={`Roof replacement, repair, coatings, storm damage restoration, metal, shingle and flat commercial roofing across ${site.serviceArea}.`}
+                description={`GAF shingle roofing, roof replacement, repair, coatings, storm damage restoration, metal and flat commercial roofing, and painting across ${site.serviceArea}.`}
             >
                 <section className="tb-servicelist pt-120 pb-90">
                     <div className="container">
@@ -20,7 +20,7 @@ export default function Services() {
                             <div className="col-lg-8">
                                 <div className="section-title text-center mb-60 tg-heading-subheading animation-style3">
                                     <span className="sub-title tg-element-title">Residential &amp; Commercial</span>
-                                    <h2 className="title tg-element-title">Seven Things We Do, and How We Do Them</h2>
+                                    <h2 className="title tg-element-title">Eight Things We Do, and How We Do Them</h2>
                                     <p className="tb-lede">
                                         Every job starts the same way — a free inspection, then a straight answer about what the roof needs. Nothing gets sold that the roof does not need.
                                     </p>

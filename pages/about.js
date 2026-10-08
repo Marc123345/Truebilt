@@ -12,7 +12,7 @@ export default function About() {
                 headerTop={true}
                 breadcrumbTitle="About Us"
                 headTitle="About True Bilt"
-                description={`True Bilt LLC is a ${site.state} roofing company run by ${site.owner}, working across ${site.serviceArea} for ${site.yearsInBusiness} years.`}
+                description={`True Bilt LLC is a ${site.state} roofing company working across ${site.serviceArea} for ${site.yearsInBusiness} years.`}
             >
                 <section className="about-area tb-about-intro">
                     <div className="container">
@@ -30,19 +30,19 @@ export default function About() {
                                         <h2 className="title tg-element-title">{site.yearsInBusiness} Years of Roofs That Hold</h2>
                                     </div>
                                     <p>
-                                        True Bilt LLC is run by {site.owner}. For {site.yearsInBusiness} years we have been roofing homes and commercial buildings across Lancaster, York and Delaware counties — manufacturing plants, food facilities, hotels and houses.
+                                        For {site.yearsInBusiness} years True Bilt LLC has been roofing homes and commercial buildings across Lancaster, York and Delaware counties — manufacturing plants, food facilities, hotels and houses.
                                     </p>
                                     <p>
-                                        We are a Conklin contractor. Those systems cost more than most of what you will be quoted, and we would rather explain why than quietly install something thinner. The free inspection is where that conversation starts.
+                                        We install GAF asphalt shingles with a 40-year warranty, and we are a Conklin coating contractor. We also take on painting work. Every job starts with a free inspection and a clear explanation of what your roof needs.
                                     </p>
                                     <div className="about-list">
                                         <ul className="list-wrap">
                                             <li><Icon name="check" />{site.licenceLine}</li>
                                             <li><Icon name="check" />Residential and commercial</li>
-                                            <li><Icon name="check" />Warranties up to 25 years</li>
+                                            <li><Icon name="check" />Warranties up to 40 years</li>
                                         </ul>
                                     </div>
-                                    <Link href="/contact" className="btn">Talk to {site.owner.split(" ")[1] ? "David" : site.owner}</Link>
+                                    <Link href="/contact" className="btn">Talk to us</Link>
                                 </div>
                             </div>
                         </div>

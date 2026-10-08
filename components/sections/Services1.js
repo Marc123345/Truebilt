@@ -14,7 +14,7 @@ export default function Services1({ limit }) {
                         <div className="col-lg-7">
                             <div className="section-title text-center mb-50 tg-heading-subheading animation-style3">
                                 <span className="sub-title tg-element-title">What We Do</span>
-                                <h2 className="title tg-element-title">Every Roofing Service, Listed Separately</h2>
+                                <h2 className="title tg-element-title">Every Service, Listed Separately</h2>
                             </div>
                         </div>
                     </div>

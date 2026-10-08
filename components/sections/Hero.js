@@ -11,14 +11,14 @@ import Icon from "../elements/Icon"
  *   - a split layout — message left, framed photo right — so the eye has a
  *     clear path: headline → buttons → proof;
  *   - two floating cards over the photo: the Conklin credential, and one of
- *     David's own jobs, which links down to the gallery;
+ *     True Bilt's own jobs, which links down to the gallery;
  *   - a chevron edge at the bottom that echoes the roofline in the logo.
  */
 export default function Hero() {
     const job = jobs[0]
     const proof = [
         { value: `${site.yearsInBusiness} yrs`, label: "Roofing in south-central PA" },
-        { value: "25-yr", label: "Warranties available" },
+        { value: "40-yr", label: "GAF shingle warranty" },
         { value: "$0", label: "Roof inspections" },
     ]
 
@@ -36,15 +36,15 @@ export default function Hero() {
                             Roofs Built to <span className="tb-hero__accent">Outlast</span> the Weather
                         </h1>
                         <p className="tb-hero__lede">
-                            Replacement, repair and Conklin restoration systems for homes, plants and
-                            commercial buildings across Lancaster, York and Delaware counties.
+                            GAF shingle roofs, replacement, repair and Conklin restoration systems for homes,
+                            plants and commercial buildings across Lancaster, York and Delaware counties.
                         </p>
                         <div className="tb-hero__actions">
                             <Link href="/contact" className="btn tb-hero__cta">Get a free inspection</Link>
                             <Link href={site.phoneHref} className="tb-hero__call">
                                 <span className="tb-hero__call-icon"><Icon name="phone-alt" /></span>
                                 <span>
-                                    <small>Call or text David</small>
+                                    <small>Call or text us</small>
                                     {site.phone}
                                 </span>
                             </Link>
