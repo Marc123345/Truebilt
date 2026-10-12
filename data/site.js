@@ -112,6 +112,8 @@ export const heroSizes = "100vw"
 
 export const site = {
     name: "True Bilt LLC",
+    // Live domain (truebiltroofing.com redirects here). Canonicals and the sitemap use it.
+    url: "https://www.truebiltroofing.com",
     shortName: "True Bilt",
     // David asked (8 Oct 2026) for his personal name to be kept off the site.
     // Area code 717 = south-central Pennsylvania, consistent with the counties.

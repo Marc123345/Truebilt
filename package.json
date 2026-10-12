@@ -5,10 +5,11 @@
     "author": "alithemes",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "node scripts/build-sitemap.mjs && next build",
         "start": "next start",
         "lint": "next lint",
-        "sass": "sass --watch public/assets/scss/main.scss:public/assets/css/main.css"
+        "sass": "sass --watch public/assets/scss/main.scss:public/assets/css/main.css",
+        "sitemap": "node scripts/build-sitemap.mjs"
     },
     "dependencies": {
         "eslint": "^9.0.0",

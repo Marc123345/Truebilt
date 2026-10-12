@@ -1,7 +1,12 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { site } from "@/data/site"
 
 const PageHead = ({ headTitle, description }) => {
+    // Canonical on the live domain, so the truebilt-roofing.vercel.app copy never competes.
+    const { asPath } = useRouter()
+    const path = asPath.split(/[?#]/)[0] || '/'
+    const url = `${site.url}${path}`
     const title = headTitle
         ? `${headTitle} | ${site.shortName} Roofing`
         : `Roofing Contractor in Lancaster, York & Delaware Counties PA | ${site.name}`
@@ -17,6 +22,8 @@ const PageHead = ({ headTitle, description }) => {
                 <meta property="og:title" content={title} />
                 <meta property="og:description" content={desc} />
                 <meta property="og:type" content="website" />
+                <meta property="og:url" content={url} />
+                <link rel="canonical" href={url} />
             </Head>
         </>
     )
